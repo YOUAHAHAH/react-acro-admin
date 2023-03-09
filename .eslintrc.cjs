@@ -17,7 +17,7 @@ module.exports = {
       typescript: {},
     },
     react: {
-      version: "detect",
+      version: "detect"
     },
   },
 };
