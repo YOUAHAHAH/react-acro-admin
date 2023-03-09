@@ -1,0 +1,10 @@
+public
+dist
+*.d.ts
+/src/assets
+package.json
+.eslintrc.cjs
+.prettierrc.js
+stylelint.config.js
+*.svg
+*.css
