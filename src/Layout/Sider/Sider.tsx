@@ -16,7 +16,8 @@ const LayoutSider = () => {
       }}
       collapsible
       trigger={collapsed ? <IconCaretRight /> : <IconCaretLeft />}
-      breakpoint='xl'>
+      breakpoint='xl'
+    >
       <SiderMenu />
     </Sider>
   );

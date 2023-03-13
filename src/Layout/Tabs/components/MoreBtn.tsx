@@ -106,7 +106,8 @@ const MoreBtn = (props: any) => {
                   <Menu.Item
                     key={item.key}
                     onClick={item.onClick}
-                    disabled={item.disabled}>
+                    disabled={item.disabled}
+                  >
                     {item.icon}
                     {item.label}
                   </Menu.Item>
@@ -122,7 +123,8 @@ const MoreBtn = (props: any) => {
           </Menu>
         }
         trigger='click'
-        position='br'>
+        position='br'
+      >
         <IconDown />
       </Dropdown>
     </div>

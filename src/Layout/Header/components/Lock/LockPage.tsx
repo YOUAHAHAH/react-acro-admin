@@ -44,7 +44,8 @@ const LockPage = (props: any) => {
           <span
             onClick={() => {
               setLock(true);
-            }}>
+            }}
+          >
             点击解锁
           </span>
         </div>
@@ -79,11 +80,13 @@ const LockPage = (props: any) => {
                     closable: true,
                   });
                 }
-              }}>
+              }}
+            >
               <FormItem
                 label='锁屏密码'
                 field='lockPwd'
-                rules={[{ required: true, message: "请输入锁屏密码" }]}>
+                rules={[{ required: true, message: "请输入锁屏密码" }]}
+              >
                 <Input.Password
                   placeholder='请输入锁屏密码'
                   autoComplete='off'
@@ -96,7 +99,8 @@ const LockPage = (props: any) => {
                   onClick={() => {
                     form.resetFields();
                     setLock(false);
-                  }}>
+                  }}
+                >
                   取消
                 </Button>
                 <Button
@@ -105,7 +109,8 @@ const LockPage = (props: any) => {
                   onClick={() => {
                     loseLockState();
                     navigate("/login");
-                  }}>
+                  }}
+                >
                   返回登录
                 </Button>
                 <Button type='text' htmlType='submit'>

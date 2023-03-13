@@ -86,7 +86,8 @@ const HeaderSetting = () => {
         locale={getLocale()}
         tablePagination={{
           hideOnSinglePage,
-        }}>
+        }}
+      >
         <Drawer
           width={332}
           title={<span>Basic Information </span>}
@@ -96,7 +97,8 @@ const HeaderSetting = () => {
           }}
           onCancel={() => {
             setVisible(false);
-          }}>
+          }}
+        >
           <Radio.Group
             value={locale}
             options={["zh-CN", "en-US"]}

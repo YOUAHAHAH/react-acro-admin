@@ -1,28 +1,27 @@
 .header {
-  padding-left: 20px;
-  height: 64px;
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--color-bg-2) !important;
+  padding-left: 20px;
+  height: 64px;
   border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-bg-2) !important;
+  flex-flow: row nowrap;
   &Box {
-    height: 64px;
-    margin-right: 30px;
     display: flex;
     align-items: center;
-    flex-direction: row;
-    flex-wrap: nowrap;
+    margin-right: 30px;
+    height: 64px;
+    flex-flow: row nowrap;
+
     button {
       margin-right: 10px;
     }
   }
   &Breadcrumb {
     display: flex;
-    align-items: center;
     flex-direction: row;
+    align-items: center;
   }
   &logo {
     width: 175px;
@@ -38,16 +37,16 @@
 }
 
 .lock_page {
-  z-index: 9999;
-  width: 100vw;
-  height: 100vh;
   position: fixed;
-  background-color: #000000;
-  color: #bababa;
-  font-weight: 700;
+  z-index: 9999;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  width: 100vw;
+  height: 100vh;
+  font-weight: 700;
+  color: #bababa;
+  background-color: #000;
   &_unlock {
     display: flex;
     flex-direction: column;
@@ -58,76 +57,76 @@
       cursor: pointer;
     }
   }
+
   &_time {
     display: flex;
-    align-items: center;
     justify-content: space-around;
+    align-items: center;
     height: 100%;
     .houers,
     .minutes {
-      background-color: #141313;
-      border-radius: 30px;
-      width: 40%;
       display: flex;
       justify-content: center;
       align-items: center;
+      width: 40%;
+      border-radius: 30px;
+      background-color: #141313;
     }
   }
   &_footer {
-    width: 100%;
-    text-align: center;
-    font-size: 24px;
     margin-bottom: 40px;
+    width: 100%;
+    font-size: 24px;
+    text-align: center;
   }
 }
+
 .blur_page {
-  z-index: 9999;
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 9999;
   display: flex;
-  width: 100%;
-  height: 100%;
-  background-color: #00000080;
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
   justify-content: center;
   align-items: center;
+  width: 100%;
+  height: 100%;
   color: #bababa;
+  background-color: #00000080;
+  backdrop-filter: blur(8px);
   &_enter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     min-width: 500px;
     height: 100%;
-    display: flex;
-    align-items: center;
     flex-direction: column;
-    justify-content: center;
     img {
+      margin-bottom: 20px;
       width: 70px;
       height: 70px;
       border-radius: 50%;
-      margin-bottom: 20px;
     }
   }
   &_link {
-    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    width: 100%;
   }
 }
 
 .tabs {
-  height: 40px;
-  line-height: 40px;
-  padding-left: 20px;
-  padding-right: 30px;
-  border-bottom: 1px solid var(--color-border);
-  background-color: (var(--color-bg-2));
   display: flex;
   justify-content: space-between;
-  flex-direction: row;
-  flex-wrap: nowrap;
   align-items: center;
+  padding-right: 30px;
+  padding-left: 20px;
+  height: 40px;
+  border-bottom: 1px solid var(--color-border);
+  background-color: (var(--color-bg-2));
+  flex-flow: row nowrap;
+  line-height: 40px;
 }
 
 .dropdown {
@@ -138,19 +137,22 @@
   .houers,
   .minutes {
     height: 80%;
+
     span {
       font-size: 160px;
     }
   }
 }
-@media (min-width: 0px) and (max-width: 768px) {
+@media (min-width: 0) and (max-width: 768px) {
   .houers,
   .minutes {
     height: 40%;
+
     span {
       font-size: 90px;
     }
   }
+
   .lockModal {
     max-width: calc(100vw - 16px);
   }

@@ -67,7 +67,8 @@ const LayoutTabs = (props: any) => {
           activeTab={activeTab}
           onAddTab={handleAddTab}
           onDeleteTab={handleDeleteTab}
-          onChange={onChange}>
+          onChange={onChange}
+        >
           {tabsList.tabsList.map((item: Menu.MenuOptions) => {
             return (
               <TabPane
@@ -75,7 +76,8 @@ const LayoutTabs = (props: any) => {
                 destroyOnHide
                 closable={item.path !== "/welcome/index"}
                 key={item.path}
-                title={item.title}></TabPane>
+                title={item.title}
+              ></TabPane>
             );
           })}
         </Tabs>

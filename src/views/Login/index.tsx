@@ -10,7 +10,8 @@ const Login = () => {
         type='primary'
         onClick={() => {
           navigate("/welcome/index");
-        }}>
+        }}
+      >
         登录
       </Button>
     </>

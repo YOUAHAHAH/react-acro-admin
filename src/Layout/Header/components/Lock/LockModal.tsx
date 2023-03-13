@@ -30,17 +30,20 @@ const LockModal = (_props: any, ref: React.Ref<unknown> | undefined) => {
         style={{ top: -100 }}
         visible={visible}
         onCancel={onCancel}
-        footer={null}>
+        footer={null}
+      >
         <Form
           form={form}
           autoComplete='off'
           onSubmit={v => {
             setLockState({ pwd: window.btoa(v.lockPwd) });
-          }}>
+          }}
+        >
           <FormItem
             label='锁屏密码'
             field='lockPwd'
-            rules={[{ required: true, message: "请输入锁屏密码" }]}>
+            rules={[{ required: true, message: "请输入锁屏密码" }]}
+          >
             <Input.Password placeholder='请输入锁屏密码' autoComplete='off' />
           </FormItem>
           <FormItem wrapperCol={{ offset: 8 }}>

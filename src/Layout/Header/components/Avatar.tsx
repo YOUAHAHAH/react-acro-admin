@@ -52,7 +52,8 @@ const HeaderAvatar = () => {
                   key={item.key}
                   onClick={() => {
                     onClick(item.key);
-                  }}>
+                  }}
+                >
                   {item.icon}
                   {item.label}
                 </Menu.Item>
@@ -61,7 +62,8 @@ const HeaderAvatar = () => {
           </Menu>
         }
         trigger='click'
-        position='br'>
+        position='br'
+      >
         <Avatar size={32}>Arco</Avatar>
       </Dropdown>
       <LockModal ref={lockRef} />

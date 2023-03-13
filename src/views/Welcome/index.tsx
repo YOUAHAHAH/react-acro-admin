@@ -23,10 +23,9 @@ const Welcome = () => {
         value={direction}
         onChange={setDirection}
         style={{ marginBottom: 40 }}
-        options={["horizontal", "vertical"]}></Radio.Group>
-      <Tabs
-        defaultActiveTab='key1'
-        style={{ height: 200 }}>
+        options={["horizontal", "vertical"]}
+      ></Radio.Group>
+      <Tabs defaultActiveTab='key1' style={{ height: 200 }}>
         {tabs.map((x, i) => (
           <TabPane destroyOnHide key={x.key} title={x.title}>
             <div style={paneStyle}>{`这里是${x.content}`}</div>

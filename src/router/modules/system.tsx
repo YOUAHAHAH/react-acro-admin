@@ -9,7 +9,7 @@ const systemRouter: Array<RouteObject> = [
     path: "/system",
     meta: {
       title: "系统管理",
-      rank: 11,
+      rank: 12,
       isChildren: true,
       icon: <IconSettings />,
     },

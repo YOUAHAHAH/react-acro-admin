@@ -6,6 +6,7 @@ module.exports = {
     "plugin:import/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended",
+    "prettier",
   ],
   plugins: ["react", "prettier"],
   rules: {
@@ -17,7 +18,7 @@ module.exports = {
       typescript: {},
     },
     react: {
-      version: "detect"
+      version: "detect",
     },
   },
 };

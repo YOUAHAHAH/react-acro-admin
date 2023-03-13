@@ -65,12 +65,14 @@ const SiderMenu = () => {
       <Spin
         loading={loading}
         tip='Loading...'
-        style={{ height: "100%", width: "100%" }}>
+        style={{ height: "100%", width: "100%" }}
+      >
         <Menu
           openKeys={openKeys}
           selectedKeys={selectedKeys}
           onClickMenuItem={onClickMenuItem}
-          onClickSubMenu={onClickSubMenu}>
+          onClickSubMenu={onClickSubMenu}
+        >
           {menuList.map((item: any) => {
             return !item.isChildren ? (
               item.children.map((i: MenuItemType) => {
@@ -89,7 +91,8 @@ const SiderMenu = () => {
                     {item.icons}
                     {item.label}
                   </span>
-                }>
+                }
+              >
                 {item.children?.map((i: any) => {
                   return i.children ? (
                     <SubMenu key={i.key} title={<span>{i.label}</span>}>

@@ -24,7 +24,8 @@ export const lazyLoad = (
             height: "100%",
           }}
         />
-      }>
+      }
+    >
       <Comp />
     </Suspense>
   );

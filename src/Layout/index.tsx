@@ -28,8 +28,9 @@ const LayoutIndex = (props: any) => {
                   marginTop: "10px",
                   padding: "0 24px",
                   flexDirection: "column",
-                }}>
-                <Content id='main'>
+                }}
+              >
+                <Content>
                   <Outlet />
                 </Content>
                 <LayoutFooter />

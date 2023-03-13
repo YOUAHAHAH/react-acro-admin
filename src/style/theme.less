@@ -1,112 +1,81 @@
 body {
-  background-color: (var(--color-bg-2));
   color: (var(--color-text-1));
-  // transition: all 0.4s;
+  background-color: (var(--color-bg-2));
 }
-
-// body[arco-theme="dark"] .arco-tag-checked.arco-tag-red {
-//   color: rgb(var(--red-6));
-// }
-// body[arco-theme="dark"] .arco-tag-checked.arco-tag-orangered {
-//   color: rgb(var(--orangered-6));
-// }
-// body[arco-theme="dark"] .arco-tag-checked.arco-tag-orange {
-//   color: rgb(var(--orange-6));
-// }
-// body[arco-theme="dark"] .arco-tag-checked.arco-tag-gold {
-//   color: rgb(var(--gold-6));
-// }
-// body[arco-theme="dark"] .arco-tag-checked.arco-tag-lime {
-//   color: rgb(var(--lime-6));
-// }
-// body[arco-theme="dark"] .arco-tag-checked.arco-tag-green {
-//   color: rgb(var(--green-6));
-// }
-// body[arco-theme="dark"] .arco-tag-checked.arco-tag-cyan {
-//   color: rgb(var(--cyan-6));
-// }
-// body[arco-theme="dark"] .arco-tag-checked.arco-tag-blue {
-//   color: rgb(var(--blue-6));
-// }
-// body[arco-theme="dark"] .arco-tag-checked.arco-tag-arcoblue {
-//   color: rgb(var(--arcoblue-6));
-// }
-// body[arco-theme="dark"] .arco-tag-checked.arco-tag-purple {
-//   color: rgb(var(--purple-6));
-// }
-// body[arco-theme="dark"] .arco-tag-checked.arco-tag-pinkpurple {
-//   color: rgb(var(--pinkpurple-6));
-// }
-// body[arco-theme="dark"] .arco-tag-checked.arco-tag-magenta {
-//   color: rgb(var(--magenta-6));
-// }
-// body[arco-theme="dark"] .arco-tag-checked.arco-tag-gray {
-//   color: rgb(var(--gray-6));
-// }
-// body[arco-theme="dark"] a {
-//   color: #fff;
-// }
 
 // menu 滚动条样式
 .arco-layout-sider-children::-webkit-scrollbar {
-  /*滚动条整体样式*/
-  width: 7px; /*高宽分别对应横竖滚动条的尺寸*/
+  /* 滚动条整体样式 */
+  width: 7px; /* 高宽分别对应横竖滚动条的尺寸 */
   height: 4px;
 }
+
 .arco-layout-sider-children::-webkit-scrollbar-thumb {
-  /*滚动条里面小方块*/
-  -webkit-box-shadow: inset 0 0 5px #49b1f5;
-  background: #49b1f5;
   border-radius: 4px;
+  background: #49b1f5;
+
+  /* 滚动条里面小方块 */
+  box-shadow: inset 0 0 5px #49b1f5;
 }
+
 .arco-layout-sider-children::-webkit-scrollbar-track {
-  /*滚动条里面轨道*/
-  -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
   background: #f0f2f5;
+
+  /* 滚动条里面轨道 */
+  box-shadow: inset 0 0 5px rgb(0 0 0 / 20%);
 }
 
 // layout
 .arco-layout {
-  // width: 100% !important;
   overflow: hidden !important;
 }
+
 .layout-collapse-demo {
-  background: var(--color-fill-2);
-  height: 100vh;
-  width: 100vw;
   display: flex;
+  width: 100vw;
+  height: 100vh;
+  background: var(--color-fill-2);
   flex-direction: column;
-  .arco-layout-footer,
-  .arco-layout-content {
-    color: var(--color-white);
-    text-align: center;
-    font-stretch: condensed;
-    font-size: 16px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
+
   .arco-layout-footer {
-    color: var(--color-text-2);
-    height: 48px;
-    line-height: 48px;
-    font-weight: 400;
-    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    font-size: 16px;
+    text-align: center;
+    color: var(--color-white);
+    font-stretch: condensed;
+    flex-direction: column;
   }
+
   .arco-layout-content {
-    background: var(--color-bg-3);
-    color: var(--color-text-2);
-    font-weight: 400;
-    font-size: 14px;
+    padding: 16px;
   }
+
+  .arco-layout-footer {
+    height: 48px;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--color-text-2);
+    line-height: 48px;
+  }
+
+  .arco-layout-content {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--color-text-2);
+    background: var(--color-bg-3);
+  }
+
   .arco-layout-header {
     height: 64px;
     line-height: 64px;
     background: var(--color-bg-3);
   }
+
   .arco-layout-header .trigger {
     margin-left: 20px;
   }
+
   .arco-layout-sider-children {
     overflow: hidden !important;
   }
@@ -127,10 +96,11 @@ body {
 .arco-tabs-header {
   bottom: -4px !important;
 }
+
 .arco-tabs-header-nav-card-gutter .arco-tabs-header-title,
 .arco-tabs-header-nav-card-gutter .arco-tabs-header-title-active,
 .arco-tabs-header-nav-card-gutter .arco-tabs-header-title-active:hover {
-  border: 0px !important;
+  border: 0 !important;
 }
 
 .arco-dropdown-menu {
