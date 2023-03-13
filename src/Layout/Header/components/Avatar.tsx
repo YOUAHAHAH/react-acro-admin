@@ -3,14 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { Dropdown, Menu, Avatar } from "@arco-design/web-react";
 import { IconExport, IconUser, IconLock } from "@arco-design/web-react/icon";
 import LockModal from "./Lock/LockModal";
+import { listAvatar } from "@/Layout/type";
 
-type list = {
-  key: string;
-  label: string;
-  icon: JSX.Element;
-};
-
-const list: list[] = [
+const list: listAvatar[] = [
   {
     key: "1",
     label: "个人中心",
@@ -45,12 +40,13 @@ const HeaderAvatar = () => {
       navigate("/login");
     }
   };
+
   return (
     <>
       <Dropdown
         droplist={
           <Menu>
-            {list.map((item: list) => {
+            {list.map((item: listAvatar) => {
               return (
                 <Menu.Item
                   key={item.key}

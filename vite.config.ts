@@ -1,16 +1,16 @@
 import { defineConfig, loadEnv, ConfigEnv, UserConfig } from "vite";
-// import pkg from "./package.json";
+import pkg from "./package.json";
 import { resolve } from "path";
 import react from "@vitejs/plugin-react";
 import vitePluginImp from "vite-plugin-imp";
 import dayjs from "dayjs";
 
-// const { dependencies, devDependencies, name, version } = pkg;
+const { dependencies, devDependencies, name, version } = pkg;
 
-// const __APP_INFO__ = {
-//   pkg: { dependencies, devDependencies, name, version },
-//   lastBuildTime: dayjs().format("YYYY-MM-DD HH:mm:ss"),
-// };
+const __APP_INFO__ = {
+  pkg: { dependencies, devDependencies, name, version },
+  lastBuildTime: dayjs().format("YYYY-MM-DD HH:mm:ss"),
+};
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
@@ -50,7 +50,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
     },
     define: {
       __APP_ENV__: env.APP_ENV,
-      // __APP_INFO__: JSON.stringify(__APP_INFO__),
+      __APP_INFO__: JSON.stringify(__APP_INFO__),
     },
   };
 });

@@ -6,6 +6,7 @@ import { Tabs } from "@arco-design/web-react";
 import { TabsState } from "@/redux/Types/type";
 import { routerArray } from "@/router/index";
 import { routePath } from "@/utils/tabsList";
+import MoreBtn from "./components/MoreBtn";
 import l from "../index.module.less";
 
 const TabPane = Tabs.TabPane;
@@ -61,6 +62,8 @@ const LayoutTabs = (props: any) => {
           showAddButton={false}
           overflow='scroll'
           type='card-gutter'
+          direction='horizontal'
+          scrollPosition='auto'
           activeTab={activeTab}
           onAddTab={handleAddTab}
           onDeleteTab={handleDeleteTab}
@@ -68,12 +71,19 @@ const LayoutTabs = (props: any) => {
           {tabsList.tabsList.map((item: Menu.MenuOptions) => {
             return (
               <TabPane
+                style={{ width: "100%" }}
+                destroyOnHide
                 closable={item.path !== "/welcome/index"}
                 key={item.path}
                 title={item.title}></TabPane>
             );
           })}
         </Tabs>
+        <MoreBtn
+          tabsList={tabsList.tabsList}
+          setTabsListState={setTabsListState}
+          handleDeleteTab={handleDeleteTab}
+        />
       </div>
     </>
   );

@@ -4,7 +4,7 @@ import {
   IconFullscreenExit,
   IconFullscreen,
 } from "@arco-design/web-react/icon";
-import { beFull, exitFull, checkFull } from "../../../Hooks/useFull";
+import { beFull, exitFull, checkFull } from "@/Hooks/useFull";
 
 const HeaderFullscreen = () => {
   const [full, setFull] = useState<boolean>(false);

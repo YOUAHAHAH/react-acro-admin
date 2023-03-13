@@ -29,7 +29,7 @@ const LayoutIndex = (props: any) => {
                   padding: "0 24px",
                   flexDirection: "column",
                 }}>
-                <Content>
+                <Content id='main'>
                   <Outlet />
                 </Content>
                 <LayoutFooter />
