@@ -7,6 +7,7 @@ declare namespace Menu {
     isLink?: string;
     close?: boolean;
     children?: MenuOptions[];
+    meta?: any;
   }
 }
 

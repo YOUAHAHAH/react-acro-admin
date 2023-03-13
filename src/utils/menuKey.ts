@@ -84,3 +84,33 @@ export const deepLoopFloat = (menuList: Menu.MenuOptions[]) => {
   });
   return newArr;
 };
+
+/**
+ *
+ * @description 获取面包屑列表
+ * @param {Menu.MenuOptions[]} menuList
+ * @param {string} path
+ * @returns arr
+ */
+
+export const currentMenu = (menuList: Menu.MenuOptions[], path: string) => {
+  let newArr: MenuItemType[] = [];
+  let title: { key?: string; label?: string }[] = [];
+  const openMenu = menuList.filter(
+    (item: RouteObject) => item.path === getOpenKeys(path)[0],
+  );
+
+  const deepMap = (deepItem: Menu.MenuOptions[]) => {
+    deepItem.map((item: Menu.MenuOptions) => {
+      if (!item.children?.length)
+        return newArr.push(getItem(item.meta?.title, item.path));
+      deepMap(item.children);
+    });
+  };
+  deepMap(openMenu);
+
+  title.push(getItem(openMenu[0].meta?.title, openMenu[0].path));
+  title.push(...newArr.filter((item: any) => item.key === path));
+
+  return title;
+};
