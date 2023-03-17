@@ -1,6 +1,6 @@
 import { Button } from "@arco-design/web-react";
 
-const Department = () => {
+const Btn = () => {
   return (
     <>
       <Button type="primary">Personnel</Button>
@@ -8,4 +8,4 @@ const Department = () => {
   );
 };
 
-export default Department;
+export default Btn;

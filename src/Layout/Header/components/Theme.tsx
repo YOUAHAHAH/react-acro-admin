@@ -19,15 +19,15 @@ const HeaderTheme = () => {
       <Tooltip content={theme ? "点击切换为暗黑模式" : "点击切换为亮色模式"}>
         {theme ? (
           <Button
-            shape='circle'
-            type='secondary'
+            shape="circle"
+            type="secondary"
             icon={<IconSun />}
             onClick={getThemeLight}
           />
         ) : (
           <Button
-            shape='circle'
-            type='secondary'
+            shape="circle"
+            type="secondary"
             icon={<IconMoon />}
             onClick={getThemeDark}
           />

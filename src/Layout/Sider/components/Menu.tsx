@@ -24,7 +24,7 @@ const SiderMenu = () => {
   const onClickSubMenu = (
     _key: string,
     openKeys: string[],
-    keyPath: string[],
+    keyPath: string[]
   ) => {
     if (openKeys.length === 0 || openKeys.length === 1)
       return setOpenKeys(openKeys);
@@ -39,8 +39,8 @@ const SiderMenu = () => {
         deepLoopFloat(
           routerArray.sort((a: RouteObject, b: RouteObject) => {
             return (a?.meta?.rank as number) - (b?.meta?.rank as number);
-          }),
-        ),
+          })
+        )
       );
       setTimeout(() => {
         setLoading(!loading);
@@ -64,7 +64,7 @@ const SiderMenu = () => {
     <>
       <Spin
         loading={loading}
-        tip='Loading...'
+        tip="Loading..."
         style={{ height: "100%", width: "100%" }}
       >
         <Menu

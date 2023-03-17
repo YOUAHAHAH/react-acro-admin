@@ -22,12 +22,12 @@ const LockPage = (props: any) => {
     const time: Date = new Date();
     setHouers(time.getHours() < 10 ? "0" + time.getHours() : time.getHours());
     setMinutes(
-      time.getMinutes() < 10 ? "0" + time.getMinutes() : time.getMinutes(),
+      time.getMinutes() < 10 ? "0" + time.getMinutes() : time.getMinutes()
     );
     setTimer(
       setInterval(() => {
         getTimer();
-      }, 1000),
+      }, 1000)
     );
   };
 
@@ -70,31 +70,31 @@ const LockPage = (props: any) => {
           <div className={l.blur_page_enter}>
             <Form
               form={form}
-              autoComplete='off'
+              autoComplete="off"
               onSubmit={v => {
                 if (window.atob(isLock.pwd) === v.lockPwd) {
                   loseLockState();
                 } else {
                   Message.error({
                     content: "密码错误！",
-                    closable: true,
+                    closable: true
                   });
                 }
               }}
             >
               <FormItem
-                label='锁屏密码'
-                field='lockPwd'
+                label="锁屏密码"
+                field="lockPwd"
                 rules={[{ required: true, message: "请输入锁屏密码" }]}
               >
                 <Input.Password
-                  placeholder='请输入锁屏密码'
-                  autoComplete='off'
+                  placeholder="请输入锁屏密码"
+                  autoComplete="off"
                 />
               </FormItem>
               <FormItem wrapperCol={{ offset: 8 }}>
                 <Button
-                  type='text'
+                  type="text"
                   style={{ marginRight: 12 }}
                   onClick={() => {
                     form.resetFields();
@@ -104,7 +104,7 @@ const LockPage = (props: any) => {
                   取消
                 </Button>
                 <Button
-                  type='text'
+                  type="text"
                   style={{ marginRight: 12 }}
                   onClick={() => {
                     loseLockState();
@@ -113,7 +113,7 @@ const LockPage = (props: any) => {
                 >
                   返回登录
                 </Button>
-                <Button type='text' htmlType='submit'>
+                <Button type="text" htmlType="submit">
                   进入
                 </Button>
               </FormItem>
@@ -126,7 +126,7 @@ const LockPage = (props: any) => {
 };
 
 const mapStateToProps = (state: any) => ({
-  isLock: state.Lock,
+  isLock: state.Lock
 });
 const mapDispatchToProps = { loseLockState };
 export default connect(mapStateToProps, mapDispatchToProps)(LockPage);

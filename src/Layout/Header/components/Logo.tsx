@@ -5,7 +5,7 @@ import l from "../../index.module.less";
 const HeaderLogo = () => {
   return (
     <div className={l.headerlogo}>
-      <Image width={30} src={logo} alt='lamp' preview={false} />
+      <Image width={30} src={logo} alt="lamp" preview={false} />
       <span>ACRO_MSY</span>
     </div>
   );

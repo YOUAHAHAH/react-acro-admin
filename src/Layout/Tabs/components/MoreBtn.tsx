@@ -5,7 +5,7 @@ import {
   IconRefresh,
   IconToLeft,
   IconToRight,
-  IconClose,
+  IconClose
 } from "@arco-design/web-react/icon";
 import l from "../../index.module.less";
 import { list } from "@/Layout/type";
@@ -20,7 +20,7 @@ const MoreBtn = (props: any) => {
       key: "1",
       label: "重新加载",
       icon: <IconRefresh style={{ marginRight: "5px" }} />,
-      onClick: () => window.location.reload(),
+      onClick: () => window.location.reload()
     },
     {
       key: "2",
@@ -28,29 +28,29 @@ const MoreBtn = (props: any) => {
       icon: <IconClose style={{ marginRight: "5px" }} />,
       onClick: () => closeTheCurrentColumnLabel(),
       disabled: pathname === "/welcome/index" ? true : false,
-      divider: true,
+      divider: true
     },
     {
       key: "3",
       label: "关闭左侧标签页",
       icon: <IconToLeft style={{ marginRight: "5px" }} />,
       onClick: () => closeTheLeftColumnLabel(),
-      disabled: tabsList.length <= 2 ? true : false,
+      disabled: tabsList.length <= 2 ? true : false
     },
     {
       key: "4",
       label: "关闭右侧标签页",
       icon: <IconToRight style={{ marginRight: "5px" }} />,
       onClick: () => closeTheRightColumnLabel(),
-      disabled: tabsList.length <= 2 ? true : false,
+      disabled: tabsList.length <= 2 ? true : false
     },
     {
       key: "5",
       label: "关闭其他标签页",
       icon: <IconToRight style={{ marginRight: "5px" }} />,
       onClick: () => closeOtherColumnLabel(),
-      disabled: tabsList.length <= 2 ? true : false,
-    },
+      disabled: tabsList.length <= 2 ? true : false
+    }
   ];
 
   const num = () => {
@@ -64,7 +64,7 @@ const MoreBtn = (props: any) => {
   // 关闭当前标签页
   const closeTheCurrentColumnLabel = () => {
     const closeTabsList = tabsList.filter(
-      (item: { path: string }) => item.path === pathname,
+      (item: { path: string }) => item.path === pathname
     );
     handleDeleteTab(closeTabsList[0].path);
   };
@@ -72,7 +72,7 @@ const MoreBtn = (props: any) => {
   // 关闭左侧标签页
   const closeTheLeftColumnLabel = () => {
     const closeTabsList = tabsList.filter(
-      (item: any) => !tabsList.slice(1, num()).includes(item),
+      (item: any) => !tabsList.slice(1, num()).includes(item)
     );
     setTabsListState(closeTabsList);
   };
@@ -80,7 +80,7 @@ const MoreBtn = (props: any) => {
   // 关闭右侧标签页
   const closeTheRightColumnLabel = () => {
     const closeTabsList = tabsList.filter(
-      (item: any) => !tabsList.slice(num() + 1, tabsList.length).includes(item),
+      (item: any) => !tabsList.slice(num() + 1, tabsList.length).includes(item)
     );
     setTabsListState(closeTabsList);
   };
@@ -89,7 +89,7 @@ const MoreBtn = (props: any) => {
   const closeOtherColumnLabel = () => {
     const closeTabsList = tabsList.filter(
       (item: { path: string }) =>
-        item.path === pathname || item.path === "/welcome/index",
+        item.path === pathname || item.path === "/welcome/index"
     );
     navigate(closeTabsList.path);
     setTabsListState(closeTabsList);
@@ -114,7 +114,7 @@ const MoreBtn = (props: any) => {
                   <Divider
                     style={{
                       display: item.divider ? "block" : "none",
-                      margin: "4px 0",
+                      margin: "4px 0"
                     }}
                   />
                 </div>
@@ -122,8 +122,8 @@ const MoreBtn = (props: any) => {
             })}
           </Menu>
         }
-        trigger='click'
-        position='br'
+        trigger="click"
+        position="br"
       >
         <IconDown />
       </Dropdown>

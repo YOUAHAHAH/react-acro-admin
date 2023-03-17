@@ -10,7 +10,7 @@ const welcomeRouter: Array<RouteObject> = [
     meta: {
       title: "首页",
       rank: 10,
-      isChildren: false,
+      isChildren: false
     },
     children: [
       {
@@ -20,11 +20,11 @@ const welcomeRouter: Array<RouteObject> = [
           requiresAuth: true,
           title: "首页",
           key: "welcome",
-          icon: <IconHome />,
-        },
-      },
-    ],
-  },
+          icon: <IconHome />
+        }
+      }
+    ]
+  }
 ];
 
 export default welcomeRouter;

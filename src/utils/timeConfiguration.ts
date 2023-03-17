@@ -23,7 +23,7 @@ export const weekDay = () => {
     "星期三",
     "星期四",
     "星期五",
-    "星期六",
+    "星期六"
   );
   const week = weeks[day];
   return week;

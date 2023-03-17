@@ -5,7 +5,7 @@ import { ACRO_TABS_LIST } from "@/redux/Types/mutation-types";
 
 const tabsState: TabsState = {
   tabsActive: "/welcome/index",
-  tabsList: [{ title: "首页", path: "/welcome/index" }],
+  tabsList: [{ title: "首页", path: "/welcome/index" }]
 };
 
 const isLock = (state: TabsState = tabsState, action: AnyAction) =>

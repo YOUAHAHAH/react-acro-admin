@@ -15,7 +15,7 @@ const LockModal = (_props: any, ref: React.Ref<unknown> | undefined) => {
     setVisible(!visible);
   };
   useImperativeHandle(ref, () => ({
-    getModalVisible,
+    getModalVisible
   }));
 
   const onCancel = () => {
@@ -26,7 +26,7 @@ const LockModal = (_props: any, ref: React.Ref<unknown> | undefined) => {
   return (
     <div>
       <Modal
-        title='锁屏密码'
+        title="锁屏密码"
         style={{ top: -100 }}
         visible={visible}
         onCancel={onCancel}
@@ -34,23 +34,23 @@ const LockModal = (_props: any, ref: React.Ref<unknown> | undefined) => {
       >
         <Form
           form={form}
-          autoComplete='off'
+          autoComplete="off"
           onSubmit={v => {
             setLockState({ pwd: window.btoa(v.lockPwd) });
           }}
         >
           <FormItem
-            label='锁屏密码'
-            field='lockPwd'
+            label="锁屏密码"
+            field="lockPwd"
             rules={[{ required: true, message: "请输入锁屏密码" }]}
           >
-            <Input.Password placeholder='请输入锁屏密码' autoComplete='off' />
+            <Input.Password placeholder="请输入锁屏密码" autoComplete="off" />
           </FormItem>
           <FormItem wrapperCol={{ offset: 8 }}>
             <Button style={{ marginRight: 12 }} onClick={onCancel}>
               取消
             </Button>
-            <Button type='primary' htmlType='submit'>
+            <Button type="primary" htmlType="submit">
               锁屏
             </Button>
           </FormItem>
@@ -61,9 +61,9 @@ const LockModal = (_props: any, ref: React.Ref<unknown> | undefined) => {
 };
 
 const mapStateToProps = (state: { Lock: LockState }) => ({
-  isLock: state.Lock,
+  isLock: state.Lock
 });
 const mapDispatchToProps = { setLockState };
 export default connect(mapStateToProps, mapDispatchToProps, null, {
-  forwardRef: true,
+  forwardRef: true
 })(forwardRef(LockModal));

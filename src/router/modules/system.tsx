@@ -9,9 +9,9 @@ const systemRouter: Array<RouteObject> = [
     path: "/system",
     meta: {
       title: "系统管理",
-      rank: 12,
+      rank: 13,
       isChildren: true,
-      icon: <IconSettings />,
+      icon: <IconSettings />
     },
     children: [
       {
@@ -20,22 +20,22 @@ const systemRouter: Array<RouteObject> = [
         meta: {
           requiresAuth: true,
           title: "人员管理",
-          key: "personnel",
-        },
+          key: "personnel"
+        }
       },
       {
         path: "/system/department",
         element: lazyLoad(
-          React.lazy(() => import("@/views/System/Department")),
+          React.lazy(() => import("@/views/System/Department"))
         ),
         meta: {
           requiresAuth: true,
           title: "部门管理",
-          key: "department",
-        },
-      },
-    ],
-  },
+          key: "department"
+        }
+      }
+    ]
+  }
 ];
 
 export default systemRouter;

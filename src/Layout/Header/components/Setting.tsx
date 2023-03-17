@@ -8,7 +8,7 @@ import {
   Space,
   Typography,
   ConfigProvider,
-  Drawer,
+  Drawer
 } from "@arco-design/web-react";
 import { IconSettings } from "@arco-design/web-react/icon";
 import zhCN from "@arco-design/web-react/es/locale/zh-CN";
@@ -17,20 +17,20 @@ import enUS from "@arco-design/web-react/es/locale/en-US";
 const columns = [
   {
     title: "Name",
-    dataIndex: "name",
+    dataIndex: "name"
   },
   {
     title: "Salary",
-    dataIndex: "salary",
+    dataIndex: "salary"
   },
   {
     title: "Address",
-    dataIndex: "address",
+    dataIndex: "address"
   },
   {
     title: "Email",
-    dataIndex: "email",
-  },
+    dataIndex: "email"
+  }
 ];
 const data = [
   {
@@ -38,22 +38,22 @@ const data = [
     name: "Jane Doe",
     salary: 23000,
     address: "32 Park Road, London",
-    email: "jane.doe@example.com",
+    email: "jane.doe@example.com"
   },
   {
     key: "2",
     name: "Alisa Ross",
     salary: 25000,
     address: "35 Park Road, London",
-    email: "alisa.ross@example.com",
+    email: "alisa.ross@example.com"
   },
   {
     key: "3",
     name: "Kevin Sandra",
     salary: 22000,
     address: "31 Park Road, London",
-    email: "kevin.sandra@example.com",
-  },
+    email: "kevin.sandra@example.com"
+  }
 ];
 
 const HeaderSetting = () => {
@@ -75,8 +75,8 @@ const HeaderSetting = () => {
   return (
     <>
       <Button
-        shape='circle'
-        type='secondary'
+        shape="circle"
+        type="secondary"
         icon={<IconSettings />}
         onClick={() => {
           setVisible(true);
@@ -85,7 +85,7 @@ const HeaderSetting = () => {
       <ConfigProvider
         locale={getLocale()}
         tablePagination={{
-          hideOnSinglePage,
+          hideOnSinglePage
         }}
       >
         <Drawer
@@ -102,9 +102,9 @@ const HeaderSetting = () => {
           <Radio.Group
             value={locale}
             options={["zh-CN", "en-US"]}
-            name='locale'
-            type='button'
-            mode='fill'
+            name="locale"
+            type="button"
+            mode="fill"
             onChange={setLocale}
             style={{ marginBottom: 40 }}
           />

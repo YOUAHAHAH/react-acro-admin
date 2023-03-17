@@ -1,7 +1,7 @@
 import {
   legacy_createStore as createStore,
   combineReducers,
-  compose,
+  compose
 } from "redux";
 import { applyMiddleware } from "redux";
 import reduxThunk from "redux-thunk";

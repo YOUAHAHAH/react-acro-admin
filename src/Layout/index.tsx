@@ -27,7 +27,7 @@ const LayoutIndex = (props: any) => {
                 style={{
                   marginTop: "10px",
                   padding: "0 24px",
-                  flexDirection: "column",
+                  flexDirection: "column"
                 }}
               >
                 <Content>
@@ -44,6 +44,6 @@ const LayoutIndex = (props: any) => {
 };
 
 const mapStateToProps = (state: any) => ({
-  lock: state.Lock.isLock,
+  lock: state.Lock.isLock
 });
 export default connect(mapStateToProps)(LayoutIndex);

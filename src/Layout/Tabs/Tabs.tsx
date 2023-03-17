@@ -41,7 +41,7 @@ const LayoutTabs = (props: any) => {
       });
     }
     setTabsListState(
-      tabsList.tabsList.filter((item: Menu.MenuOptions) => item.path !== key),
+      tabsList.tabsList.filter((item: Menu.MenuOptions) => item.path !== key)
     );
   };
 
@@ -60,10 +60,10 @@ const LayoutTabs = (props: any) => {
         <Tabs
           editable
           showAddButton={false}
-          overflow='scroll'
-          type='card-gutter'
-          direction='horizontal'
-          scrollPosition='auto'
+          overflow="scroll"
+          type="card-gutter"
+          direction="horizontal"
+          scrollPosition="auto"
           activeTab={activeTab}
           onAddTab={handleAddTab}
           onDeleteTab={handleDeleteTab}
@@ -92,7 +92,7 @@ const LayoutTabs = (props: any) => {
 };
 
 const mapStateToProps = (state: { Tab: TabsState }) => ({
-  tabsList: state.Tab,
+  tabsList: state.Tab
 });
 const mapDispatchToProps = { setTabsListState };
 export default connect(mapStateToProps, mapDispatchToProps)(LayoutTabs);

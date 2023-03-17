@@ -9,18 +9,18 @@ const list: listAvatar[] = [
   {
     key: "1",
     label: "个人中心",
-    icon: <IconUser style={{ marginRight: "5px" }} />,
+    icon: <IconUser style={{ marginRight: "5px" }} />
   },
   {
     key: "2",
     label: "锁定屏幕",
-    icon: <IconLock style={{ marginRight: "5px" }} />,
+    icon: <IconLock style={{ marginRight: "5px" }} />
   },
   {
     key: "3",
     label: "退出登录",
-    icon: <IconExport style={{ marginRight: "5px" }} />,
-  },
+    icon: <IconExport style={{ marginRight: "5px" }} />
+  }
 ];
 
 const HeaderAvatar = () => {
@@ -61,8 +61,8 @@ const HeaderAvatar = () => {
             })}
           </Menu>
         }
-        trigger='click'
-        position='br'
+        trigger="click"
+        position="br"
       >
         <Avatar size={32}>Arco</Avatar>
       </Dropdown>

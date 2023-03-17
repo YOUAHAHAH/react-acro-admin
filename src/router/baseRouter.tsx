@@ -9,7 +9,7 @@ import Layout from "@/Layout/index";
  */
 
 export const lazyLoad = (
-  Comp: React.LazyExoticComponent<any>,
+  Comp: React.LazyExoticComponent<any>
 ): React.ReactNode => {
   return (
     <Suspense
@@ -21,7 +21,7 @@ export const lazyLoad = (
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            height: "100%",
+            height: "100%"
           }}
         />
       }

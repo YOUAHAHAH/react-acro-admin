@@ -11,7 +11,7 @@ const menuRouter: Array<RouteObject> = [
       title: "嵌套菜单",
       rank: 11,
       isChildren: true,
-      icon: <IconUnorderedList />,
+      icon: <IconUnorderedList />
     },
     children: [
       {
@@ -20,8 +20,8 @@ const menuRouter: Array<RouteObject> = [
         meta: {
           requiresAuth: true,
           title: "菜单1",
-          key: "menu1",
-        },
+          key: "menu1"
+        }
       },
       {
         path: "/menu/menu2",
@@ -30,43 +30,43 @@ const menuRouter: Array<RouteObject> = [
           title: "菜单2",
           key: "menu2",
           isChildren: true,
-          icon: <IconUnorderedList />,
+          icon: <IconUnorderedList />
         },
         children: [
           {
             path: "/menu/menu2/menu21",
             element: lazyLoad(
-              React.lazy(() => import("@/views/menu/menu2/menu21/index")),
+              React.lazy(() => import("@/views/menu/menu2/menu21/index"))
             ),
             meta: {
               requiresAuth: true,
               title: "菜单2-1",
-              key: "menu21",
-            },
+              key: "menu21"
+            }
           },
           {
             path: "/menu/menu2/menu22",
             element: lazyLoad(
-              React.lazy(() => import("@/views/menu/menu2/menu22/index")),
+              React.lazy(() => import("@/views/menu/menu2/menu22/index"))
             ),
             meta: {
               requiresAuth: true,
               title: "菜单2-2",
-              key: "menu22",
-            },
+              key: "menu22"
+            }
           },
           {
             path: "/menu/menu2/menu23",
             element: lazyLoad(
-              React.lazy(() => import("@/views/menu/menu2/menu23/index")),
+              React.lazy(() => import("@/views/menu/menu2/menu23/index"))
             ),
             meta: {
               requiresAuth: true,
               title: "菜单2-3",
-              key: "menu23",
-            },
-          },
-        ],
+              key: "menu23"
+            }
+          }
+        ]
       },
       {
         path: "/menu/menu3",
@@ -74,11 +74,11 @@ const menuRouter: Array<RouteObject> = [
         meta: {
           requiresAuth: true,
           title: "菜单3",
-          key: "menu3",
-        },
-      },
-    ],
-  },
+          key: "menu3"
+        }
+      }
+    ]
+  }
 ];
 
 export default menuRouter;

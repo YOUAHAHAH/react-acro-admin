@@ -41,7 +41,7 @@ const getItem = (
   isChildren?: boolean,
   icons?: ReactNode,
   children?: MenuItemType[],
-  type?: "group",
+  type?: "group"
 ): MenuItemType => {
   return {
     key,
@@ -49,7 +49,7 @@ const getItem = (
     isChildren,
     label,
     icons,
-    type,
+    type
   } as unknown as MenuItemType;
 };
 
@@ -69,8 +69,8 @@ export const deepLoopFloat = (menuList: Menu.MenuOptions[]) => {
           item.meta?.title,
           item.path,
           item.meta?.isChildren,
-          item.meta?.icon,
-        ),
+          item.meta?.icon
+        )
       );
     newArr.push(
       getItem(
@@ -78,8 +78,8 @@ export const deepLoopFloat = (menuList: Menu.MenuOptions[]) => {
         item.path,
         item.meta?.isChildren,
         item.meta?.icon,
-        deepLoopFloat(item.children),
-      ),
+        deepLoopFloat(item.children)
+      )
     );
   });
   return newArr;
@@ -97,7 +97,7 @@ export const currentMenu = (menuList: Menu.MenuOptions[], path: string) => {
   let newArr: MenuItemType[] = [];
   let title: { key?: string; label?: string }[] = [];
   const openMenu = menuList.filter(
-    (item: RouteObject) => item.path === getOpenKeys(path)[0],
+    (item: RouteObject) => item.path === getOpenKeys(path)[0]
   );
 
   const deepMap = (deepItem: Menu.MenuOptions[]) => {
