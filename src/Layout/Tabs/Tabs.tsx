@@ -5,7 +5,7 @@ import { setTabsListState } from "@/redux/modules/Tab/actions";
 import { Tabs } from "@arco-design/web-react";
 import { TabsState } from "@/redux/Types/type";
 import { routerArray } from "@/router/index";
-import { routePath } from "@/utils/tabsList";
+import { routePath } from "@/utils/menuKey";
 import MoreBtn from "./components/MoreBtn";
 import l from "../index.module.less";
 

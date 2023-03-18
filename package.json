@@ -18,6 +18,7 @@
     "dayjs": "^1.11.7",
     "immer": "^9.0.19",
     "mockjs": "^1.1.0",
+    "nprogress": "^0.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.5",
@@ -28,6 +29,8 @@
     "reset-css": "^5.0.1"
   },
   "devDependencies": {
+    "@types/nprogress": "^0.2.0",
+    "@types/qs": "^6.9.7",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "@types/redux-promise": "^0.5.29",
@@ -54,6 +57,7 @@
     "stylelint-less": "^1.0.6",
     "typescript": "^4.9.3",
     "vite": "^4.1.0",
-    "vite-plugin-imp": "^2.3.1"
+    "vite-plugin-imp": "^2.3.1",
+    "vite-plugin-mock": "^2.9.6"
   }
 }

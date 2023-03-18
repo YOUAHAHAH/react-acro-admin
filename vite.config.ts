@@ -3,6 +3,7 @@ import pkg from "./package.json";
 import { resolve } from "path";
 import react from "@vitejs/plugin-react";
 import vitePluginImp from "vite-plugin-imp";
+import { viteMockServe } from "vite-plugin-mock";
 import dayjs from "dayjs";
 
 const { dependencies, devDependencies, name, version } = pkg;
@@ -15,6 +16,7 @@ const __APP_INFO__ = {
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
   const env = loadEnv(mode, process.cwd(), "");
+  const prodMock = true;
 
   return {
     resolve: {
@@ -42,6 +44,16 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
             }
           }
         ]
+      }),
+      viteMockServe({
+        mockPath: "mock",
+        localEnabled: command === "serve",
+        prodEnabled: command !== "serve" && prodMock,
+        injectCode: `
+            import { setupProdMockServer } from './mockProdServer';
+            setupProdMockServer();
+          `,
+        logger: false
       })
     ],
     css: {

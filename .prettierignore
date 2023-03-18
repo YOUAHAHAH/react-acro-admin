@@ -2,6 +2,3 @@
 /node_modules/**
 /dist/*
 /public/*
-
-# Ignore all HTML files:
-*.html
