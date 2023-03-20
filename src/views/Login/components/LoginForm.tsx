@@ -2,13 +2,16 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Form, Input, Button, Checkbox, Message } from "@arco-design/web-react";
 import { IconUser, IconLock } from "@arco-design/web-react/icon";
+import { connect } from "react-redux";
+import { setAuthState } from "@/redux/modules/Auth/action";
+import { getLogin } from "@/api/modules/login";
 import logo from "@/assets/img/logo.png";
 import l from "../index.module.less";
-import { getLogin } from "@/api/modules/login";
 
 const FormItem = Form.Item;
 
-const LoginForm = () => {
+const LoginForm = (props: any) => {
+  const { setAuthState } = props;
   const navigate = useNavigate();
   const [form] = Form.useForm();
   const [loading, setLoading] = useState<boolean>(false);
@@ -18,6 +21,11 @@ const LoginForm = () => {
       const { data, msg, success } = res;
       setLoading(true);
       if (success === true) {
+        setAuthState({
+          username: data.username,
+          roles: data.roles,
+          token: data.accessToken
+        });
         setTimeout(() => {
           Message.success(msg);
           navigate("/welcome/index");
@@ -82,4 +90,5 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+const mapDispatchToProps = { setAuthState };
+export default connect(null, mapDispatchToProps)(LoginForm);

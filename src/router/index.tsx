@@ -1,5 +1,6 @@
 import { Navigate, useRoutes } from "react-router-dom";
 import Login from "@/views/Login/index";
+import Error404 from "@/views/Error/404";
 import { RouteObject } from "./type";
 
 // * 导入所有router
@@ -27,8 +28,13 @@ export const rootRouter: RouteObject[] = [
   },
   ...routerArray,
   {
-    path: "*",
-    element: <Navigate to="/404" />
+    path: "/*",
+    element: <Error404 />,
+    meta: {
+      requiresAuth: false,
+      title: "404",
+      key: "404"
+    }
   }
 ];
 

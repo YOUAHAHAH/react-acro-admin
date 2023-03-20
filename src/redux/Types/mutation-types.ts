@@ -1,8 +1,10 @@
-// 设置 appLockKey
+// appLockKey
 export const ACRO_LOCK_KEY = "ACRO_LOCK_KEY";
 // lockTrue
-export const ACRO_LOCK_KEY_TRUE = "lockStateTrue";
+export const ACRO_LOCK_KEY_TRUE = "LOCK_STATE_TRUE";
 // lockFalse
-export const ACRO_LOCK_KEY_FALSE = "lockStateFalse";
+export const ACRO_LOCK_KEY_FALSE = "LOCK_STATE_FALSE";
 // tabsList
 export const ACRO_TABS_LIST = "ACRO_TABS_LIST";
+// authToken
+export const ACRO_AUTH_TOKEN = "ACRO_AUTH_TOKEN";

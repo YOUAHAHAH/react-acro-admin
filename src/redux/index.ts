@@ -8,6 +8,7 @@ import reduxThunk from "redux-thunk";
 import reduxPromise from "redux-promise";
 import Lock from "./modules/Lock/reducer";
 import Tab from "./modules/Tab/reducer";
+import Auth from "./modules/Auth/reducer";
 
 // 开启 redux-devtools
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -16,6 +17,6 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const middleWares = applyMiddleware(reduxThunk, reduxPromise);
 
 // 汇总reducer
-const allReducer = combineReducers({ Lock, Tab });
+const allReducer = combineReducers({ Lock, Tab, Auth });
 
 export default createStore(allReducer, composeEnhancers(middleWares));

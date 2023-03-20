@@ -1,9 +1,14 @@
-import { Button } from "@arco-design/web-react";
+import { Link, Space } from "@arco-design/web-react";
 
 const Error404 = () => {
   return (
     <>
-      <Button type="primary">Error404</Button>
+      <Space size={40}>
+        <Link href="#"> Link </Link>
+        <Link href="#" disabled>
+          Link
+        </Link>
+      </Space>
     </>
   );
 };

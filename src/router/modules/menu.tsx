@@ -1,5 +1,5 @@
 import React from "react";
-import { LayoutIndex, lazyLoad } from "../baseRouter";
+import { LayoutIndex, lazyLoad } from "../utils/baseRouter";
 import { RouteObject } from "@/router/type";
 import { IconUnorderedList } from "@arco-design/web-react/icon";
 

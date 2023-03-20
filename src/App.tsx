@@ -1,4 +1,5 @@
 import { HashRouter } from "react-router-dom";
+import AuthRouter from "@/router/utils/authRouter";
 import Router from "@/router/index";
 
 export default function App() {
@@ -9,7 +10,9 @@ export default function App() {
     //     hideOnSinglePage,
     //   }}>
     <HashRouter>
-      <Router />
+      <AuthRouter>
+        <Router />
+      </AuthRouter>
     </HashRouter>
     // </ConfigProvider>
   );
