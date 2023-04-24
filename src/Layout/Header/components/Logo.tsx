@@ -6,7 +6,7 @@ const HeaderLogo = () => {
   return (
     <div className={l.headerlogo}>
       <Image width={30} src={logo} alt="lamp" preview={false} />
-      <span>ACRO_MSY</span>
+      {/* <span>党员活动信息管理系统</span> */}
     </div>
   );
 };

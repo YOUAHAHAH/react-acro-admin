@@ -41,8 +41,8 @@ const LoginForm = (props: any) => {
   return (
     <>
       <div className={l.login_logo}>
-        <img src={logo} />
-        <span className={l.logo_text}>ACRO-ADMIN</span>
+        {/* <img src={logo} /> */}
+        <span className={l.logo_text}>党员活动信息管理系统</span>
       </div>
       <Form
         form={form}
@@ -80,9 +80,6 @@ const LoginForm = (props: any) => {
             loading={loading}
           >
             登录
-          </Button>
-          <Button long type="default" htmlType="submit" loading={loading}>
-            注册用户
           </Button>
         </FormItem>
       </Form>

@@ -33,7 +33,7 @@ const LayoutIndex = (props: any) => {
                 <Content>
                   <Outlet />
                 </Content>
-                <LayoutFooter />
+                {/* <LayoutFooter /> */}
               </Layout>
             </Layout>
           </Layout>

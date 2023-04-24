@@ -5,6 +5,7 @@ import "@arco-design/web-react/dist/css/arco.css";
 import "./style/theme.less";
 import { Provider } from "react-redux";
 import store from "@/redux";
+import "default-passive-events";
 
 const container = document.getElementById("root") as HTMLElement;
 const root: ReactDOM.Root = createRoot(container);

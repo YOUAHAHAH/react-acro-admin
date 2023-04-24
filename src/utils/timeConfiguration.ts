@@ -1,4 +1,4 @@
-import dayjs from "dayjs";
+import dayjs, { Dayjs } from "dayjs";
 
 /**
  *
@@ -42,3 +42,8 @@ export const weekDay = () => {
 //     return "晚上好！";
 //   }
 // };
+
+// 日历自定义内容类型
+export type DateInnerContent =
+  | ((currentDate: Dayjs) => React.ReactNode)
+  | undefined;
