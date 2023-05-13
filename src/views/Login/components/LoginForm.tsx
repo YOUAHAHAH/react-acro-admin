@@ -41,8 +41,8 @@ const LoginForm = (props: any) => {
   return (
     <>
       <div className={l.login_logo}>
-        {/* <img src={logo} /> */}
-        <span className={l.logo_text}>党员活动信息管理系统</span>
+        <img src={logo} />
+        <span className={l.logo_text}>acroReact_ts</span>
       </div>
       <Form
         form={form}

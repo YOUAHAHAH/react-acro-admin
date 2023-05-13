@@ -8,7 +8,7 @@ import {
 } from "@arco-design/web-react";
 import { CSSProperties, ReactNode } from "react";
 
-export declare type InputItemProps = {
+export declare interface InputItemProps {
   key: string | number;
   label?: string;
   labelWidth?: string | number;
@@ -21,21 +21,21 @@ export declare type InputItemProps = {
     | SelectProps
     | DatePickerProps;
   [key: string]: any;
-};
+}
 
-export declare type defaultValueType = {
+export declare interface defaultValueType {
   [key: string]: string | number | string[] | undefined;
-};
+}
 
-export declare type butGroup = {
+export declare interface butGroup {
   searchBtn?: ReactNode;
   searchBtnProps?: ButtonProps;
   resetBtn?: ReactNode;
   resetBtnProps?: ButtonProps;
   ButtonGroup?: boolean;
-};
+}
 
-export interface SearchBoxProps {
+export type SearchBoxProps = {
   // onSearch: (keyword: { [key: string]: string | number }) => void;
   onSearch: (keyword: defaultValueType) => void;
   onReset?: () => void;
@@ -43,4 +43,4 @@ export interface SearchBoxProps {
   inputList: InputItemProps[];
   defaultValue?: defaultValueType;
   butGroup?: butGroup;
-}
+};

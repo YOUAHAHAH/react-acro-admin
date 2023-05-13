@@ -3,10 +3,10 @@ import { LayoutIndex, lazyLoad } from "../utils/baseRouter";
 import { RouteObject } from "@/router/type";
 import { IconSafe } from "@arco-design/web-react/icon";
 
-const permissionRouter: Array<RouteObject> = [
+const materialRouter: Array<RouteObject> = [
   {
     element: <LayoutIndex />,
-    path: "/permission",
+    path: "/material",
     meta: {
       title: "权限管理",
       rank: 12,
@@ -15,8 +15,8 @@ const permissionRouter: Array<RouteObject> = [
     },
     children: [
       {
-        path: "/permission/Page",
-        element: lazyLoad(React.lazy(() => import("@/views/Permission/Page"))),
+        path: "/material/Page",
+        element: lazyLoad(React.lazy(() => import("@/views/Material/Page"))),
         meta: {
           requiresAuth: true,
           title: "页面权限",
@@ -24,8 +24,8 @@ const permissionRouter: Array<RouteObject> = [
         }
       },
       {
-        path: "/permission/Btn",
-        element: lazyLoad(React.lazy(() => import("@/views/Permission/Btn"))),
+        path: "/material/Btn",
+        element: lazyLoad(React.lazy(() => import("@/views/Material/Btn"))),
         meta: {
           requiresAuth: true,
           title: "按钮权限",
@@ -36,4 +36,4 @@ const permissionRouter: Array<RouteObject> = [
   }
 ];
 
-export default permissionRouter;
+export default materialRouter;
