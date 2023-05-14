@@ -2,11 +2,11 @@ import { MessageList } from "./messageList";
 import {
   msgType,
   msgLoadingProps,
-  messageItemProps,
+  msgItemProps,
   msgProps
 } from "./messageType";
 
 const MessageCom = MessageList;
 
 export default MessageCom;
-export type { msgType, msgLoadingProps, messageItemProps, msgProps };
+export type { msgType, msgLoadingProps, msgItemProps, msgProps };

@@ -1,4 +1,4 @@
-type PrimitiveType = number | string | boolean | undefined | null;
+type PrimitiveType = number | string | boolean | undefined | null | string[];
 type TargetType =
   | "number"
   | "string"

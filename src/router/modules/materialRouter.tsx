@@ -8,28 +8,32 @@ const materialRouter: Array<RouteObject> = [
     element: <LayoutIndex />,
     path: "/material",
     meta: {
-      title: "权限管理",
+      title: "物料管理",
       rank: 12,
       isChildren: true,
       icon: <IconSafe />
     },
     children: [
       {
-        path: "/material/Page",
-        element: lazyLoad(React.lazy(() => import("@/views/Material/Page"))),
+        path: "/material/materialList",
+        element: lazyLoad(
+          React.lazy(() => import("@/views/Material/materialList"))
+        ),
         meta: {
           requiresAuth: true,
-          title: "页面权限",
-          key: "page"
+          title: "物料查询",
+          key: "btn"
         }
       },
       {
-        path: "/material/Btn",
-        element: lazyLoad(React.lazy(() => import("@/views/Material/Btn"))),
+        path: "/material/materialGroup",
+        element: lazyLoad(
+          React.lazy(() => import("@/views/Material/materialGroup"))
+        ),
         meta: {
           requiresAuth: true,
-          title: "按钮权限",
-          key: "btn"
+          title: "团队查询",
+          key: "page"
         }
       }
     ]

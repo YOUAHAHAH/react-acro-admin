@@ -1,13 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import MessageCom from "@/views/components/message/src/index";
-import {
-  Button,
-  Space,
-  Icon,
-  Divider,
-  Tooltip,
-  Message
-} from "@arco-design/web-react";
+import { Button, Space, Icon, Divider, Tooltip } from "@arco-design/web-react";
 import {
   IconExclamationCircle,
   IconFaceSmileFill
@@ -304,6 +297,22 @@ const MessageList = () => {
           关闭消息提示
         </Button>
       </Space>
+      {/* <Divider orientation={"left"}>分组消息合并</Divider>
+      <Space size="large">
+        <Button
+          onClick={MessageCom({
+            type: "success",
+            props: {
+              content: "This is an info message!",
+              grouping: true,
+              closable: true
+            }
+          })}
+          type="primary"
+        >
+          Info
+        </Button>
+      </Space> */}
     </>
   );
 };

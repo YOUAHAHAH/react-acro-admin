@@ -30,11 +30,13 @@ export declare type msgLoadingProps = {
 };
 
 export interface msgItemProps extends MessageProps {
-  feedBack?: true;
+  feedBack?: boolean;
+  grouping?: boolean;
 }
 
 export type msgProps = {
   type?: msgType;
   props?: msgItemProps;
   loadingProps?: msgLoadingProps;
+  // initialCount?: number;
 };
