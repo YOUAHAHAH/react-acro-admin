@@ -15,6 +15,7 @@
     "isolatedModules": true,
     "noEmit": true,
     "suppressImplicitAnyIndexErrors": true,
+    "ignoreDeprecations": "5.0",
     "jsx": "react-jsx",
     // 解析非相对模块名的基准目录
     "baseUrl": "./",
