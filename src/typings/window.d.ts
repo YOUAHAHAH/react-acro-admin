@@ -6,6 +6,12 @@ declare global {
   interface Navigator {
     msSaveOrOpenBlob: (blob: Blob, fileName: string) => void;
     browserLanguage: string;
+    connection: {
+      effectiveType: string;
+      downlink: number;
+      rtt: number;
+      addEventListener;
+    };
   }
 }
 export {};

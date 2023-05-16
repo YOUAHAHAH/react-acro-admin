@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { List, Result, Table, Typography } from "@arco-design/web-react";
 import { IconSearch } from "@arco-design/web-react/icon";
 import { queryGroupSite } from "@/api/modules/material";
@@ -6,8 +6,12 @@ import SearchBox, {
   defaultValueType
 } from "@/views/components/searchBox/src/index";
 import MessageCom from "@/views/components/message/src";
+import ModalGroup from "./modalGroup";
+import ConfigTable from "./configTable";
 import dayjs from "dayjs";
 import { typeF } from "@/utils/baseFun";
+
+type size = "small" | "default" | "middle" | "mini" | undefined;
 
 const columns = [
   {
@@ -42,9 +46,12 @@ const tableProps = {
 };
 
 const MaterialGroup = () => {
+  const ModalRef = useRef<any>();
   const [data, setData] = useState([]);
   const [resetData, setResetData] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [dataItem, setDataItem] = useState({});
+  const [tableSize, setTableSize] = useState<size>("default");
 
   const handleSearch = (keyword: defaultValueType) => {
     setLoading(true);
@@ -68,12 +75,14 @@ const MaterialGroup = () => {
   const handleReset = () => {
     setLoading(true);
     setTimeout(() => {
-      MessageCom({
-        type: "success",
-        props: {
-          content: "重置成功！"
-        }
-      }) as any;
+      (
+        MessageCom({
+          type: "success",
+          props: {
+            content: "重置成功！"
+          }
+        }) as any
+      )();
       setData(resetData);
       setLoading(false);
     }, 300);
@@ -105,32 +114,40 @@ const MaterialGroup = () => {
 
   return (
     <>
-      <SearchBox
-        onSearch={handleSearch}
-        onReset={handleReset}
-        loading={loading}
-        inputList={[
-          {
-            key: "input",
-            label: "ID",
-            labelWidth: "30px",
-            placeholder: "Please Enter ID",
-            allowClear: true
-          }
-        ]}
-        butGroup={{
-          searchBtn: "搜索",
-          resetBtn: "重置",
-          searchBtnProps: {
-            style: { marginRight: "8px" }
-          }
-        }}
-      />
+      <div style={{ display: "flex", justifyContent: " space-between" }}>
+        <SearchBox
+          onSearch={handleSearch}
+          onReset={handleReset}
+          loading={loading}
+          inputList={[
+            {
+              key: "input",
+              label: "ID",
+              labelWidth: "30px",
+              placeholder: "Please Enter ID",
+              allowClear: true
+            }
+          ]}
+          butGroup={{
+            searchBtn: "搜索",
+            resetBtn: "重置",
+            searchBtnProps: {
+              style: { marginRight: "8px" }
+            }
+          }}
+        />
+
+        <ConfigTable setTableSize={setTableSize} loading={loading} />
+      </div>
+
+      {}
+
       <Table
         loading={loading}
         columns={columns}
         data={data}
         {...tableProps}
+        size={tableSize}
         expandedRowRender={(record: any) => {
           const meta =
             record.meta?.length === undefined ? 0 : record.meta.length;
@@ -152,7 +169,8 @@ const MaterialGroup = () => {
                     <span
                       className="list-demo-actions-icon"
                       onClick={() => {
-                        console.log(item);
+                        setDataItem(item);
+                        ModalRef.current?.ModalmaterialGroupDetail();
                       }}
                     >
                       <IconSearch />
@@ -165,7 +183,15 @@ const MaterialGroup = () => {
             <Result status={null} title="暂未查询到团队站点"></Result>
           );
         }}
+        onExpand={(detail, expanded) => {
+          console.log(detail, expanded);
+        }}
+        onExpandedRowsChange={expandedRows => {
+          console.log(expandedRows);
+        }}
       />
+
+      <ModalGroup ModalRef={ModalRef} item={dataItem} />
     </>
   );
 };

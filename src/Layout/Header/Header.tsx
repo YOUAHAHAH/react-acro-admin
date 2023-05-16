@@ -3,6 +3,7 @@ import HeaderLogo from "./components/Logo";
 import HaerderFullscreen from "./components/Fullscreen";
 import HaerderTheme from "./components/Theme";
 import HaerderSetting from "./components/Setting";
+import HeaderNetworkInfo from "./components/NetworkInfo";
 import HaerderAvatar from "./components/Avatar";
 import HeaderBreadCrumb from "./components/Breadcrumb/Breadcrumb";
 import l from "../index.module.less";
@@ -17,6 +18,7 @@ const LayoutHeader = () => {
         <HeaderBreadCrumb />
       </div>
       <div className={l.headerBox}>
+        <HeaderNetworkInfo />
         <HaerderFullscreen />
         <HaerderTheme />
         <HaerderSetting />
