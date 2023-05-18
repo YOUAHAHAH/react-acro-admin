@@ -53,19 +53,6 @@ const ableRouter: Array<RouteObject> = [
           key: "waterfallFlow"
         }
       },
-      // {
-      //   path: "/components/draggable",
-      //   element: lazyLoad(
-      //     React.lazy(
-      //       () => import("@/views/components/draggable/components/draggable")
-      //     )
-      //   ),
-      //   meta: {
-      //     requiresAuth: true,
-      //     title: "拖拽组件",
-      //     key: "draggable"
-      //   }
-      // },
     ]
   }
 ];

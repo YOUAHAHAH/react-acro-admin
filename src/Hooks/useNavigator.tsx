@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 
-type natWerkInfo = {
+interface natWerkInfo {
   type?: string;
   rtt?: number;
   downlink?: number;
-};
+}
 
 export const useNavigator = () => {
   const [natWerkInfo, setNatWerkInfo] = useState<natWerkInfo>({});

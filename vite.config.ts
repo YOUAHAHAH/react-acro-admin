@@ -4,6 +4,7 @@ import { resolve } from "path";
 import react from "@vitejs/plugin-react";
 import vitePluginImp from "vite-plugin-imp";
 import { viteMockServe } from "vite-plugin-mock";
+import picocolors from "picocolors";
 import dayjs from "dayjs";
 
 const { dependencies, devDependencies, name, version } = pkg;
@@ -17,6 +18,16 @@ const __APP_INFO__ = {
 export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
   const env = loadEnv(mode, process.cwd(), "");
   const prodMock = true;
+
+  console.log(
+    picocolors.bold(
+      picocolors.green(
+        `👏欢迎使用${picocolors.blue(
+          "[acroReact_ts]"
+        )}，如果您感觉不错，记得点击后面链接给个star哦💖 https://github.com/YOUAHAHAH/acroReact_ts`
+      )
+    )
+  );
 
   return {
     resolve: {
@@ -56,6 +67,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
         logger: false
       })
     ],
+
     css: {
       preprocessorOptions: {
         less: {

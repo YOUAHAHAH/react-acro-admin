@@ -1,15 +1,26 @@
-import { Link, Space } from "@arco-design/web-react";
+import { Result, Button } from "@arco-design/web-react";
+import { useNavigate } from "react-router-dom";
 
 const Error404 = () => {
+  const navigate = useNavigate();
+
   return (
-    <>
-      <Space size={40}>
-        <Link href="#"> Link </Link>
-        <Link href="#" disabled>
-          Link
-        </Link>
-      </Space>
-    </>
+    <div>
+      <Result
+        style={{ margin: "200px auto" }}
+        status="404"
+        subTitle="Whoops, that page is gone. "
+        extra={[
+          <Button
+            key="back"
+            type="primary"
+            onClick={() => navigate("/welcome/index")}
+          >
+            Back
+          </Button>
+        ]}
+      ></Result>
+    </div>
   );
 };
 

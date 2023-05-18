@@ -7,15 +7,14 @@ import {
   TableColumnProps
 } from "@arco-design/web-react";
 import { IconSearch } from "@arco-design/web-react/icon";
+import dayjs from "dayjs";
 import { queryGroupSite } from "@/api/modules/material";
 import SearchBox, {
   defaultValueType
 } from "@/views/components/searchBox/src/index";
 import MessageCom from "@/views/components/message/src";
 import ModalGroup from "./modalGroup";
-import ConfigTable from "./configTable";
-import ColumnContext from "./ColumnContext";
-import dayjs from "dayjs";
+import { useConfigTable } from "@/Hooks/useColumn";
 import { typeF } from "@/utils/baseFun";
 
 type size = "small" | "default" | "middle" | "mini" | undefined;
@@ -122,75 +121,78 @@ const MaterialGroup = () => {
 
   return (
     <>
-      <ColumnContext.Provider value={{ columnsValue, setColumnsValue }}>
-        <div style={{ display: "flex", justifyContent: " space-between" }}>
-          <SearchBox
-            onSearch={handleSearch}
-            onReset={handleReset}
-            loading={loading}
-            inputList={[
-              {
-                key: "input",
-                label: "ID",
-                labelWidth: "30px",
-                placeholder: "Please Enter ID",
-                allowClear: true
-              }
-            ]}
-            butGroup={{
-              searchBtn: "搜索",
-              resetBtn: "重置",
-              searchBtnProps: {
-                style: { marginRight: "8px" }
-              }
-            }}
-          />
-          <ConfigTable setTableSize={setTableSize} loading={loading} />
-        </div>
-
-        <Table
+      <div style={{ display: "flex", justifyContent: " space-between" }}>
+        <SearchBox
+          onSearch={handleSearch}
+          onReset={handleReset}
           loading={loading}
-          columns={columnsValue}
-          data={data}
-          {...tableProps}
-          size={tableSize}
-          expandedRowRender={(record: any) => {
-            const meta =
-              record.meta?.length === undefined ? 0 : record.meta.length;
-            return meta !== 0 ? (
-              <List
-                key={record.id}
-                size="small"
-                dataSource={record.meta}
-                render={(
-                  item: { author: string; description: string },
-                  index: number
-                ) => {
-                  return (
-                    <List.Item key={index}>
-                      <span>
-                        <Typography.Text code>{item.author}</Typography.Text>
-                        {item.description}
-                      </span>
-                      <span
-                        className="list-demo-actions-icon"
-                        onClick={() => {
-                          setDataItem(item);
-                          ModalRef.current?.ModalmaterialGroupDetail();
-                        }}
-                      >
-                        <IconSearch />
-                      </span>
-                    </List.Item>
-                  );
-                }}
-              />
-            ) : (
-              <Result status={null} title="暂未查询到团队站点"></Result>
-            );
+          inputList={[
+            {
+              key: "input",
+              label: "ID",
+              labelWidth: "30px",
+              placeholder: "Please Enter ID",
+              allowClear: true
+            }
+          ]}
+          butGroup={{
+            searchBtn: "搜索",
+            resetBtn: "重置",
+            searchBtnProps: {
+              style: { marginRight: "8px" }
+            }
           }}
         />
-      </ColumnContext.Provider>
+        {useConfigTable({
+          setTableSize: setTableSize,
+          setColumnsValue: setColumnsValue,
+          loading: loading,
+          columns: columnsValue
+        })}
+      </div>
+
+      <Table
+        loading={loading}
+        columns={columnsValue}
+        data={data}
+        {...tableProps}
+        size={tableSize}
+        expandedRowRender={(record: any) => {
+          const meta =
+            record.meta?.length === undefined ? 0 : record.meta.length;
+          return meta !== 0 ? (
+            <List
+              key={record.id}
+              size="small"
+              dataSource={record.meta}
+              render={(
+                item: { author: string; description: string },
+                index: number
+              ) => {
+                return (
+                  <List.Item key={index}>
+                    <span>
+                      <Typography.Text code>{item.author}</Typography.Text>
+                      {item.description}
+                    </span>
+                    <span
+                      className="list-demo-actions-icon"
+                      onClick={() => {
+                        setDataItem(item);
+                        ModalRef.current?.ModalmaterialGroupDetail();
+                      }}
+                    >
+                      <IconSearch />
+                    </span>
+                  </List.Item>
+                );
+              }}
+            />
+          ) : (
+            <Result status={null} title="暂未查询到团队站点"></Result>
+          );
+        }}
+      />
 
       <ModalGroup ModalRef={ModalRef} item={dataItem} />
     </>
