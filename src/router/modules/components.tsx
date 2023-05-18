@@ -52,7 +52,20 @@ const ableRouter: Array<RouteObject> = [
           title: "图片懒加载",
           key: "waterfallFlow"
         }
-      }
+      },
+      // {
+      //   path: "/components/draggable",
+      //   element: lazyLoad(
+      //     React.lazy(
+      //       () => import("@/views/components/draggable/components/draggable")
+      //     )
+      //   ),
+      //   meta: {
+      //     requiresAuth: true,
+      //     title: "拖拽组件",
+      //     key: "draggable"
+      //   }
+      // },
     ]
   }
 ];

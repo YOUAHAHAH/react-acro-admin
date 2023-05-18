@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import {
   Button,
   Dropdown,
@@ -12,9 +12,12 @@ import {
   IconSort,
   IconSettings
 } from "@arco-design/web-react/icon";
+import Draggable from "@/views/Material/materialGroup/draggable";
+import ColumnContext from "./ColumnContext";
 
 const ConfigTable = (props: { setTableSize: Function; loading: boolean }) => {
   const { setTableSize, loading } = props;
+  const { columnsValue } = useContext(ColumnContext);
   const [fold, setFold] = useState(false);
 
   const handleExpend = () => {
@@ -63,12 +66,21 @@ const ConfigTable = (props: { setTableSize: Function; loading: boolean }) => {
       </Breadcrumb.Item>
       <Breadcrumb.Item>
         <Tooltip content="列设置">
-          <Button
-            shape="circle"
-            type="secondary"
-            icon={<IconSettings />}
-            disabled={loading}
-          />
+          <Dropdown
+            trigger="click"
+            droplist={
+              <Menu style={{ width: "160px", padding: "10x" }}>
+                <Draggable columns={columnsValue} />
+              </Menu>
+            }
+          >
+            <Button
+              shape="circle"
+              type="secondary"
+              icon={<IconSettings />}
+              disabled={loading}
+            />
+          </Dropdown>
         </Tooltip>
       </Breadcrumb.Item>
     </Breadcrumb>
