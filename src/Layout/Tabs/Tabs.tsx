@@ -20,9 +20,9 @@ const LayoutTabs = (props: any) => {
   // addTab
   const handleAddTab = () => {
     const route = routePath(pathname, routerArray);
-    let newArr = [...tabsList.tabsList];
+    const newArr = [...tabsList.tabsList];
     if (tabsList.tabsList.every((item: any) => item.path !== route.path)) {
-      newArr.push({ title: route.meta!.title, path: route.path });
+      newArr.push({ title: route.meta?.title, path: route.path });
     }
     setTabsListState(newArr);
     setActiveTab(pathname);

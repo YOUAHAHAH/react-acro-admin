@@ -3,7 +3,6 @@ import { Layout } from "@arco-design/web-react";
 import { connect } from "react-redux";
 import LayoutSider from "./Sider/Sider";
 import LayoutHeader from "./Header/Header";
-import LayoutFooter from "./Footer/Footer";
 import LayoutTabs from "./Tabs/Tabs";
 import LockPage from "./Header/components/Lock/LockPage";
 

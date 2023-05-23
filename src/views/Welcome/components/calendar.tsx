@@ -1,5 +1,5 @@
 import { Calendar, Tag } from "@arco-design/web-react";
-import { nowDate, DateInnerContent } from "@/utils/timeConfiguration";
+import { nowDate, DateInnerContent } from "@/utils/timeConfig";
 import { Dayjs } from "dayjs";
 
 const data = [

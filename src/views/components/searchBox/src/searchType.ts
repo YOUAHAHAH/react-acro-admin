@@ -20,7 +20,7 @@ export declare interface InputItemProps {
     | RadioGroupProps
     | SelectProps
     | DatePickerProps;
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 export declare interface defaultValueType {

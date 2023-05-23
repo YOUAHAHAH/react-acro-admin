@@ -1,6 +1,5 @@
 import { Message } from "@arco-design/web-react";
 import { msgProps, msgLoadingProps, msgItemProps } from "./messageType";
-import { CSSProperties } from "react";
 
 const DELAY_TIME = 2000; // 延迟时间
 

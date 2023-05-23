@@ -1,24 +1,23 @@
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback } from "react";
 import {
   Button,
   Dropdown,
   Tooltip,
   Menu,
-  Breadcrumb,
-  Checkbox
+  Breadcrumb
 } from "@arco-design/web-react";
 import {
   IconToBottom,
   IconToRight,
   IconSort,
-  IconSettings
+  IconSettings,
+  IconDragDotVertical
 } from "@arco-design/web-react/icon";
 import {
   SortableContainer,
   SortableElement,
   SortableHandle
 } from "react-sortable-hoc";
-import { IconDragDotVertical } from "@arco-design/web-react/icon";
 
 const DragHandle = SortableHandle(() => <IconDragDotVertical />);
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { LayoutIndex, lazyLoad } from "../utils/baseRouter";
 import { RouteObject } from "@/router/type";
-import { IconSafe } from "@arco-design/web-react/icon";
+import { IconExperiment } from "@arco-design/web-react/icon";
 
 const materialRouter: Array<RouteObject> = [
   {
@@ -11,7 +11,7 @@ const materialRouter: Array<RouteObject> = [
       title: "物料管理",
       rank: 12,
       isChildren: true,
-      icon: <IconSafe />
+      icon: <IconExperiment />
     },
     children: [
       {

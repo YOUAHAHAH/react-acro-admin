@@ -14,7 +14,6 @@
 
 </div>
 
-
 # 例子
 
 ```typescript
@@ -336,7 +335,6 @@ const MessageList = () => {
 };
 
 export default MessageList;
-
 ```
 
 # API
@@ -347,8 +345,8 @@ export default MessageList;
 | props        | MessageApi        | messageItemProps | `-`      | -    |
 | loadingProps | MessageLoadingApi | msgLoadingProps  | `-`      | -    |
 
-
 ### MessageApi
+
 | 参数名               | 描述                                                          | 类型                            | 默认值                    | 版本   |
 | -------------------- | ------------------------------------------------------------- | ------------------------------- | ------------------------- | ------ |
 | closable             | 是否显示关闭按钮                                              | boolean                         | `-`                       | -      |
@@ -359,7 +357,7 @@ export default MessageList;
 | position             | 消息的位置，分为 `top` 上方和 `bottom` 下方                   | 'top' \| 'bottom'               | `-`                       | -      |
 | icon                 | 自定义图标                                                    | ReactNode                       | `-`                       | -      |
 | className            | 节点类名                                                      | string \| string[]              | `-`                       | -      |
-| content              | 消息内容                                                      | ReactNode \| string  **(必填)** | `-`                       | -      |
+| content              | 消息内容                                                      | ReactNode \| string **(必填)**  | `-`                       | -      |
 | style                | 节点样式                                                      | CSSProperties                   | `-`                       | -      |
 | transitionTimeout    | 动画持续时间，见 react-transition-group 的 `timeout`          | {enter?: number;exit?: number;} | `{enter: 100, exit: 300}` | 2.43.0 |
 | onClose              | 关闭时的回调                                                  | () => void                      | `-`                       | -      |
@@ -368,7 +366,7 @@ export default MessageList;
 
 ### 全局设置
 
-`Message.config(options)`  这个全局设置在自己的组件内使用即可
+`Message.config(options)` 这个全局设置在自己的组件内使用即可
 
 | 参数名       |        描述        |        类型         |                默认值 |
 | ------------ | :----------------: | :-----------------: | --------------------: |
@@ -376,7 +374,6 @@ export default MessageList;
 | getContainer |   放置通知的容器   | `() => HTMLElement` | `() => document.body` |
 | duration     | 通知自动关闭的时间 |      `number`       |                `3000` |
 | prefixCls    |      类名前缀      |      `string`       |                `arco` |
-
 
 ```typescript
 type msgType =

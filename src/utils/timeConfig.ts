@@ -16,7 +16,7 @@ export const nowDate = (data?: string, timestamp?: number) =>
  */
 export const weekDay = () => {
   const day: number = new Date().getDay();
-  const weeks: string[] = new Array(
+  const weeks: string[] = [
     "星期日",
     "星期一",
     "星期二",
@@ -24,7 +24,7 @@ export const weekDay = () => {
     "星期四",
     "星期五",
     "星期六"
-  );
+  ];
   const week = weeks[day];
   return week;
 };

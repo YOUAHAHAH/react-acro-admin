@@ -10,10 +10,10 @@ import { RouteObject } from "@/router/type";
  */
 
 export const getOpenKeys = (path: string): string[] => {
-  let newStr: string = "";
-  let newArr: string[] = [];
-  let arr: string[] = path.split("/").map((i: string) => "/" + i);
-  for (let i: number = 1; i < arr.length - 1; i++) {
+  let newStr = "";
+  const newArr: string[] = [];
+  const arr: string[] = path.split("/").map((i: string) => "/" + i);
+  for (let i = 1; i < arr.length - 1; i++) {
     newStr += arr[i];
     newArr.push(newStr);
   }
@@ -63,7 +63,7 @@ const getItem = (
  */
 
 export const deepLoopFloat = (menuList: Menu.MenuOptions[]) => {
-  let newArr: MenuItemType[] = [];
+  const newArr: MenuItemType[] = [];
   menuList.forEach((item: RouteObject) => {
     if (!item.children?.length)
       return newArr.push(
@@ -96,8 +96,8 @@ export const deepLoopFloat = (menuList: Menu.MenuOptions[]) => {
  */
 
 export const currentMenu = (menuList: Menu.MenuOptions[], path: string) => {
-  let newArr: MenuItemType[] = [];
-  let title: { key?: string; label?: string }[] = [];
+  const newArr: MenuItemType[] = [];
+  const title: { key?: string; label?: string }[] = [];
   const openMenu = menuList.filter(
     (item: RouteObject) => item.path === getOpenKeys(path)[0]
   );

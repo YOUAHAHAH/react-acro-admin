@@ -14,12 +14,13 @@
 
 </div>
 
-
 # 例子
 
 ```typescript
 import { useState } from "react";
-import SearchBox, { defaultValueType } from "@/views/components/searchBox/src/index";
+import SearchBox, {
+  defaultValueType
+} from "@/views/components/searchBox/src/index";
 import { Message } from "@arco-design/web-react";
 
 const ActivityCenter = () => {
@@ -199,7 +200,6 @@ const ActivityCenter = () => {
 };
 
 export default ActivityCenter;
-
 ```
 
 # API
@@ -212,8 +212,8 @@ export default ActivityCenter;
 | onReset   | 重置事件 | () => void                          | `-`    | -    |
 | onSearch  | 搜索事件 | (keyword: defaultValueType) => void | `-`    | -    |
 
-
 ### InputItemProps
+
 | 参数名             | 描述           | 类型                                                                            | 默认值  |
 | ------------------ | -------------- | ------------------------------------------------------------------------------- | ------- |
 | key                | 键值(唯一)     | string \| number                                                                | 必填    |

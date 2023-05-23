@@ -1,9 +1,9 @@
 import {
   legacy_createStore as createStore,
   combineReducers,
-  compose
+  compose,
+  applyMiddleware
 } from "redux";
-import { applyMiddleware } from "redux";
 import reduxThunk from "redux-thunk";
 import reduxPromise from "redux-promise";
 import Lock from "./modules/Lock/reducer";

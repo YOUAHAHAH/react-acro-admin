@@ -92,21 +92,21 @@ export const SearchBox: React.FC<SearchBoxProps> = memo(
           onChange: (e: any) => handleInputChange(e, key),
           value: inputValues[key] === undefined ? undefined : inputValues[key],
           style,
-          ...radioGroupProps
+          ...(radioGroupProps as unknown as any)
         };
 
         const selectProps = {
           onChange: (e: any) => handleInputChange(e, key),
           value: inputValues[key] === undefined ? undefined : inputValues[key],
           style: { ...style, width: itemStyle?.width ?? "200px" },
-          ...selectGroupProps
+          ...(selectGroupProps as unknown as any)
         };
 
         const DatePickerProps = {
           onChange: (e: any) => handleInputChange(e, key),
           value: inputValues[key] === undefined ? undefined : inputValues[key],
           style: { ...style, width: itemStyle?.width ?? "200px" },
-          ...DatePickerItemProps
+          ...(DatePickerItemProps as unknown as any)
         };
 
         return (

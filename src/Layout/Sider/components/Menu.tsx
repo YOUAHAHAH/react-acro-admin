@@ -41,7 +41,6 @@ const SiderMenu = () => {
     try {
       const { data } = await getRouterList();
       if (!data) return;
-      // const newRouterList = [...routerArray, ...(data as unknown as any)];
       setMenuList(
         deepLoopFloat(
           routerArray.sort((a: RouteObject, b: RouteObject) => {

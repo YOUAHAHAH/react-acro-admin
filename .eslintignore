@@ -8,8 +8,9 @@ node_modules
 package.json
 .eslintrc.cjs
 .prettierrc.cjs
-stylelint.config.cjs
 postcss.config.cjs
+stylelint.config.cjs
+tailwind.config.js
 *.svg
 *.css
 *.md
