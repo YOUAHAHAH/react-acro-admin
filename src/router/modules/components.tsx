@@ -39,20 +39,7 @@ const ableRouter: Array<RouteObject> = [
           title: "消息提示",
           key: "message"
         }
-      },
-      {
-        path: "/components/imgLoad",
-        element: lazyLoad(
-          React.lazy(
-            () => import("@/views/components/imgLoad/components/imgLoad")
-          )
-        ),
-        meta: {
-          requiresAuth: true,
-          title: "图片懒加载",
-          key: "waterfallFlow"
-        }
-      },
+      }
     ]
   }
 ];

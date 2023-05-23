@@ -26,9 +26,9 @@ const authRouter = (props: { children: JSX.Element; auth: AuthState }) => {
 
   if (!token) return <Navigate to="/login" replace />; // 判断是否登录
 
-  // const whiteRouter = ["/welcome/index", "/403"]; // 白名单
+  // const whiteRouter = ["/welcome/index", "/404"]; // 白名单
 
-  // if (whiteRouter.indexOf(pathname) == -1) return <Navigate to="/403" />;
+  // if (whiteRouter.indexOf(pathname) == -1) return <Navigate to="/404" />;
 
   return children;
 };

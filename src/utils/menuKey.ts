@@ -1,6 +1,6 @@
-import { RouteObject } from "@/router/type";
-import { MenuProps } from "@arco-design/web-react/es/Menu/interface";
 import { ReactNode } from "react";
+import { MenuProps } from "@arco-design/web-react/es/Menu/interface";
+import { RouteObject } from "@/router/type";
 
 /**
  *
@@ -23,6 +23,8 @@ export const getOpenKeys = (path: string): string[] => {
 export type MenuItemType = Required<MenuProps>[][number] & {
   key: string;
   label: string;
+  isChildren?: boolean;
+  isLink?: boolean;
 };
 
 /**
@@ -109,7 +111,7 @@ export const currentMenu = (menuList: Menu.MenuOptions[], path: string) => {
   };
   deepMap(openMenu);
 
-  title.push(getItem(openMenu[0].meta?.title, openMenu[0].path));
+  title.push(getItem(openMenu[0]?.meta?.title, openMenu[0]?.path));
   title.push(...newArr.filter((item: any) => item.key === path));
 
   return title;

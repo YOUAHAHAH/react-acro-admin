@@ -17,9 +17,17 @@ const LayoutIndex = (props: any) => {
       {lock ? (
         <LockPage />
       ) : (
-        <Layout className={"layout-collapse-demo"}>
+        <Layout
+          className={"layout-collapse-demo"}
+          style={{ position: "relative" }}
+        >
           <LayoutHeader />
-          <Layout style={{ flexDirection: "row", overflow: "hidden" }}>
+          <Layout
+            style={{
+              flexDirection: "row",
+              overflow: "hidden"
+            }}
+          >
             <LayoutSider />
             <Layout>
               <LayoutTabs />

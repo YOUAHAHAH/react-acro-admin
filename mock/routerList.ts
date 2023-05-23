@@ -1,31 +1,31 @@
 import { MockMethod } from "vite-plugin-mock";
 
-const systemRouter = {
-  path: "/system",
+const asyncRouter = {
+  path: "/auth",
   meta: {
-    title: "系统管理",
-    icon: "IconSettings",
-    rank: 13,
+    title: "权限管理",
+    icon: "<IconIdcard />",
+    rank: 17,
     isChildren: true
   },
   children: [
     {
-      path: "/system/personnel",
-      element: "@/views/Permission/Page",
+      path: "/auth/page",
+      element: "@/views/auth/page",
       meta: {
         requiresAuth: true,
-        key: "personnel",
-        title: "人员管理",
+        key: "page",
+        title: "页面权限",
         roles: ["admin"]
       }
     },
     {
-      path: "/system/department",
-      element: "@/views/Permission/Btn",
+      path: "/auth/btn",
+      element: "@/views/auth/btn",
       meta: {
         requiresAuth: true,
-        key: "department",
-        title: "部门管理",
+        key: "btn",
+        title: "按钮权限",
         roles: ["admin"]
       }
     }
@@ -40,7 +40,7 @@ export default [
       return {
         success: true,
         msg: "获取成功",
-        data: [systemRouter]
+        data: [asyncRouter]
       };
     }
   }

@@ -6,8 +6,8 @@ import Cookies from "js-cookie";
 
 const authState: AuthState = {
   username: "",
-  roles: [],
-  token: ""
+  token: "",
+  roles: []
 };
 
 const isAuth = (state: AuthState = authState, action: AnyAction) =>

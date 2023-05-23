@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import { ReactNode, useCallback, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Menu, Spin, Message } from "@arco-design/web-react";
 import { routerArray } from "@/router/index";
 import { RouteObject } from "@/router/type";
 import { getOpenKeys, deepLoopFloat, MenuItemType } from "@/utils/menuKey";
+import { getRouterList } from "@/api/modules/routerList";
 
 const MenuItem = Menu.Item;
 const SubMenu = Menu.SubMenu;
@@ -16,10 +17,13 @@ const SiderMenu = () => {
   const [openKeys, setOpenKeys] = useState<string[]>([]);
   const [menuList, setMenuList] = useState<MenuItemType[]>([]);
 
-  const onClickMenuItem = (key: string, _event: any, _keyPath: string[]) => {
-    setSelectedKeys([key]);
-    navigate(key);
-  };
+  const onClickMenuItem = useCallback(
+    (key: string, _event: any, _keyPath: string[]) => {
+      setSelectedKeys([key]);
+      navigate(key);
+    },
+    []
+  );
 
   const onClickSubMenu = (
     _key: string,
@@ -35,10 +39,13 @@ const SiderMenu = () => {
 
   const getMenuList = async () => {
     try {
+      const { data } = await getRouterList();
+      if (!data) return;
+      // const newRouterList = [...routerArray, ...(data as unknown as any)];
       setMenuList(
         deepLoopFloat(
           routerArray.sort((a: RouteObject, b: RouteObject) => {
-            return (a?.meta?.rank as number) - (b?.meta?.rank as number);
+            return (a.meta?.rank as number) - (b.meta?.rank as number);
           })
         )
       );
@@ -60,6 +67,36 @@ const SiderMenu = () => {
     setOpenKeys(getOpenKeys(pathname));
   }, [pathname]);
 
+  const renderMenuItem = (menuList: MenuItemType[]) => {
+    return menuList.map((item: MenuItemType) => {
+      if (item.isChildren) {
+        const subMenuTitle = (
+          <span>
+            {item.icons as ReactNode}
+            {item.label}
+          </span>
+        );
+
+        const children = item.children
+          ? renderMenuItem(item.children as MenuItemType[])
+          : null;
+
+        return (
+          <SubMenu key={item.key} title={subMenuTitle}>
+            {children}
+          </SubMenu>
+        );
+      } else {
+        return (
+          <MenuItem key={item.key}>
+            {item.icons as ReactNode}
+            {item.label}
+          </MenuItem>
+        );
+      }
+    });
+  };
+
   return (
     <>
       <Spin
@@ -73,40 +110,7 @@ const SiderMenu = () => {
           onClickMenuItem={onClickMenuItem}
           onClickSubMenu={onClickSubMenu}
         >
-          {menuList.map((item: any) => {
-            return !item.isChildren ? (
-              item.children.map((i: MenuItemType) => {
-                return (
-                  <MenuItem key={i.key}>
-                    {i.icons as unknown as any}
-                    {i.label}
-                  </MenuItem>
-                );
-              })
-            ) : (
-              <SubMenu
-                key={item.key}
-                title={
-                  <span>
-                    {item.icons}
-                    {item.label}
-                  </span>
-                }
-              >
-                {item.children?.map((i: any) => {
-                  return i.children ? (
-                    <SubMenu key={i.key} title={<span>{i.label}</span>}>
-                      {i.children?.map((a: MenuItemType) => {
-                        return <MenuItem key={a.key}>{a.label}</MenuItem>;
-                      })}
-                    </SubMenu>
-                  ) : (
-                    <MenuItem key={i.key}>{i.label}</MenuItem>
-                  );
-                })}
-              </SubMenu>
-            );
-          })}
+          {renderMenuItem(menuList)}
         </Menu>
       </Spin>
     </>

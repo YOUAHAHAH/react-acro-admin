@@ -6,11 +6,12 @@ import { IconHome } from "@arco-design/web-react/icon";
 const welcomeRouter: Array<RouteObject> = [
   {
     element: <LayoutIndex />,
-    path: "/welcome",
+    path: "/welcome/index",
     meta: {
       title: "首页",
       rank: 10,
-      isChildren: false
+      isChildren: false,
+      icon: <IconHome />
     },
     children: [
       {
@@ -19,8 +20,7 @@ const welcomeRouter: Array<RouteObject> = [
         meta: {
           requiresAuth: true,
           title: "首页",
-          key: "welcome",
-          icon: <IconHome />
+          key: "welcome"
         }
       }
     ]

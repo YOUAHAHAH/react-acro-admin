@@ -5,6 +5,7 @@ import { RouteObject } from "./type";
 
 // * 导入所有router
 const metaRouters = import.meta.globEager("./modules/*.tsx");
+
 export const routerArray: RouteObject[] = [];
 Object.keys(metaRouters).forEach(item => {
   Object.keys(metaRouters[item] as unknown as any).forEach((key: any) => {

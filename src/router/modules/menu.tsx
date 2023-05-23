@@ -29,8 +29,7 @@ const menuRouter: Array<RouteObject> = [
           requiresAuth: true,
           title: "菜单2",
           key: "menu2",
-          isChildren: true,
-          // icon: <IconUnorderedList />
+          isChildren: true
         },
         children: [
           {

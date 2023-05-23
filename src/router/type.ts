@@ -5,8 +5,8 @@ export interface RouteObject {
   index?: boolean;
   path?: string;
   meta?: MetaProps;
-  isLink?: string;
   title?: string;
+  frameSrc?: string;
 }
 
 export interface MetaProps {
@@ -17,4 +17,7 @@ export interface MetaProps {
   rank?: number;
   isChildren?: boolean;
   icon?: any;
+  frameSrc?: string;
+  isOutsideLink?: boolean;
+  isLink?: boolean;
 }
