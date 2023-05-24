@@ -36,8 +36,12 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
       }
     },
     server: {
-      host: "localhost",
-      hmr: true
+      hmr: true,
+      // 是否开启 https
+      https: false,
+      // 端口号
+      port: Number(env.VITE_PORT),
+      host: "0.0.0.0"
     },
     plugins: [
       react(),
@@ -77,7 +81,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
       }
     },
     define: {
-      __APP_ENV__: env.APP_ENV,
+      __INTLIFY_PROD_DEVTOOLS__: false,
       __APP_INFO__: JSON.stringify(__APP_INFO__)
     }
   };

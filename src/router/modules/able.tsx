@@ -22,6 +22,15 @@ const ableRouter: Array<RouteObject> = [
           title: "二维码",
           key: "qrcode"
         }
+      },
+      {
+        path: "/able/scraping",
+        element: lazyLoad(React.lazy(() => import("@/views/Able/scraping"))),
+        meta: {
+          requiresAuth: true,
+          title: "刮刮乐",
+          key: "scraping"
+        }
       }
     ]
   }

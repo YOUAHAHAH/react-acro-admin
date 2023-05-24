@@ -19,3 +19,13 @@ export interface customOpt {
     };
   };
 }
+
+export interface ctxProps {
+  backgroundColor?: string;
+  font?: string;
+  textColor?: string;
+  text?: string | number;
+  onMouseDown?: any;
+  onMouseUp?: any;
+  generate?: boolean;
+}

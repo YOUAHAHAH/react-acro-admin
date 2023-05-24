@@ -22,7 +22,7 @@ const hook = (props: any) => {
           const container = document.getElementById("container");
           container?.appendChild(canvas);
         });
-  }, []);
+  }, [text, opts, type, tag]);
 
   return (
     <div className={h.card}>
