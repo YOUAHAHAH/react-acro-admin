@@ -35,10 +35,9 @@ const calendar = () => {
   };
 
   return (
-    <div style={{ width: "100%", overflow: "auto" }}>
+    <div className="w-full overflow-auto">
       <Calendar
         defaultValue={nowDate("YYYY-MM-DD")}
-        style={{ marginRight: 50 }}
         dateInnerContent={customizedInnerContent}
       />
     </div>

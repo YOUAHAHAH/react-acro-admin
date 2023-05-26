@@ -27,7 +27,7 @@ const LockModal = (_props: any, ref: React.Ref<unknown> | undefined) => {
     <div>
       <Modal
         title="锁屏密码"
-        style={{ top: -100 }}
+        className="!top-[-100px]"
         visible={visible}
         onCancel={onCancel}
         footer={null}
@@ -47,7 +47,7 @@ const LockModal = (_props: any, ref: React.Ref<unknown> | undefined) => {
             <Input.Password placeholder="请输入锁屏密码" autoComplete="off" />
           </FormItem>
           <FormItem wrapperCol={{ offset: 8 }}>
-            <Button style={{ marginRight: 12 }} onClick={onCancel}>
+            <Button className="mr-[12px]" onClick={onCancel}>
               取消
             </Button>
             <Button type="primary" htmlType="submit">

@@ -79,17 +79,12 @@ const Hook = (props: ctxProps) => {
   return (
     <>
       <canvas
+        className="!absolute"
         width={400}
         height={200}
         ref={textCanvasRef}
-        style={{ position: "absolute" }}
       />
-      <canvas
-        width={400}
-        height={200}
-        ref={canvasRef}
-        style={{ position: "relative" }}
-      />
+      <canvas className="!relative" width={400} height={200} ref={canvasRef} />
     </>
   );
 };

@@ -73,7 +73,7 @@ const LoginForm = (props: any) => {
         </FormItem>
         <FormItem>
           <Button
-            style={{ marginBottom: "10px" }}
+            className="mb-[10px]"
             long
             type="primary"
             htmlType="submit"

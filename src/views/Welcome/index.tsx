@@ -4,12 +4,8 @@ import Calendar from "./components/calendar";
 const Welcome = () => {
   return (
     <>
-      <Card
-        style={{ width: "100%", marginBottom: "20px" }}
-        className="card-custom-hover-style"
-        hoverable
-      >
-        <Avatar size={40} shape="square" style={{ marginRight: "20px" }}>
+      <Card className="card-custom-hover-style w-full mb-[20px]" hoverable>
+        <Avatar className="mr-[20px]" size={40} shape="square">
           Arco
         </Avatar>
         <Typography.Text type="primary">Mark</Typography.Text>

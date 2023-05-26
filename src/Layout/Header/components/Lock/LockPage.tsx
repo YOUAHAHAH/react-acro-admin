@@ -94,8 +94,8 @@ const LockPage = (props: any) => {
               </FormItem>
               <FormItem wrapperCol={{ offset: 8 }}>
                 <Button
+                  className="mr-[12px]"
                   type="text"
-                  style={{ marginRight: 12 }}
                   onClick={() => {
                     form.resetFields();
                     setLock(false);
@@ -104,8 +104,8 @@ const LockPage = (props: any) => {
                   取消
                 </Button>
                 <Button
+                  className="mr-[12px]"
                   type="text"
-                  style={{ marginRight: 12 }}
                   onClick={() => {
                     loseLockState();
                     navigate("/login");

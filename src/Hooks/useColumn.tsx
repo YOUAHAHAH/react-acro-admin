@@ -95,8 +95,8 @@ const useConfigTable = (props: {
   );
 
   const SortableItem = SortableElement(({ value }: any) => (
-    <li key={`item-${value}`} style={{ zIndex: "999999", margin: "5px" }}>
-      <span style={{ cursor: "move", margin: "0 10px" }}>
+    <li key={`item-${value}`} className="z-[999999] m-1">
+      <span className="cursor-grab mx-1">
         <DragHandle />
       </span>
       {/* <Checkbox
@@ -122,9 +122,7 @@ const useConfigTable = (props: {
   ));
 
   const SortableList = SortableContainer(({ items }: any) => {
-    return (
-      <ul style={{ display: "flex", flexDirection: "column" }}>{items}</ul>
-    );
+    return <ul className="flex flex-col">{items}</ul>;
   });
 
   // useEffect(() => {
@@ -180,7 +178,7 @@ const useConfigTable = (props: {
           <Dropdown
             trigger="click"
             droplist={
-              <Menu style={{ width: "160px", padding: "10x" }}>
+              <Menu className="w-40">
                 {/* <Checkbox
                   onChange={(checked: boolean) => {
                     setState(({ items }) => {

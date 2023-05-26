@@ -121,7 +121,7 @@ const MaterialGroup = () => {
 
   return (
     <>
-      <div style={{ display: "flex", justifyContent: " space-between" }}>
+      <div className="flex justify-between">
         <SearchBox
           onSearch={handleSearch}
           onReset={handleReset}

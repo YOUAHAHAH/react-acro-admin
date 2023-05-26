@@ -92,7 +92,7 @@ const ActivityCenter = () => {
           {
             key: "inputNum",
             label: "数字输入框",
-            labelWidth: "100px",
+            labelWidth: "120px",
             placeholder: "Please Enter Number",
             type: "number",
             defaultValue: "720"

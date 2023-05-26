@@ -98,11 +98,7 @@ const SiderMenu = () => {
 
   return (
     <>
-      <Spin
-        loading={loading}
-        tip="Loading..."
-        style={{ height: "100%", width: "100%" }}
-      >
+      <Spin loading={loading} tip="Loading..." className="h-full w-full">
         <Menu
           openKeys={openKeys}
           selectedKeys={selectedKeys}

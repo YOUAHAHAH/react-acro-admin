@@ -72,7 +72,7 @@ const LayoutTabs = (props: any) => {
           {tabsList.tabsList.map((item: Menu.MenuOptions) => {
             return (
               <TabPane
-                style={{ width: "100%" }}
+                className="w-full"
                 destroyOnHide
                 closable={item.path !== "/welcome/index"}
                 key={item.path}

@@ -2,7 +2,6 @@ import { useState } from "react";
 import SearchBox, {
   defaultValueType
 } from "@/views/components/searchBox/src/index";
-import { Message } from "@arco-design/web-react";
 import MessageCom from "@/views/components/message/src/index";
 
 const ActivityCenter = () => {
@@ -77,7 +76,7 @@ const ActivityCenter = () => {
   };
 
   return (
-    <div style={{ display: "flex", flexDirection: "column" }}>
+    <div className="flex flex-col">
       <SearchBox
         onSearch={handleSearch1}
         onReset={handleReset1}
@@ -88,12 +87,12 @@ const ActivityCenter = () => {
             label: "输入框",
             placeholder: "Please Enter something",
             allowClear: true,
-            defaultValue: "火影忍者"
+            defaultValue: "火影忍者",
           },
           {
             key: "inputNum",
             label: "数字输入框",
-            labelWidth: "100px",
+            labelWidth: "120px",
             placeholder: "Please Enter Number",
             type: "number",
             defaultValue: "720"

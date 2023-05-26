@@ -25,8 +25,7 @@ export const SearchBox: React.FC<SearchBoxProps> = memo(
   ({ onSearch, onReset, loading, inputList, butGroup }) => {
     const [inputValues, setInputValues] = useState<defaultValueType>({});
 
-    const inputValuesRef: MutableRefObject<defaultValueType> =
-      useRef(inputValues);
+    const inputValuesRef: MutableRefObject<any> = useRef(inputValues);
 
     const handleSearch = useCallback(() => {
       onSearch(inputValuesRef.current as any);
@@ -82,7 +81,7 @@ export const SearchBox: React.FC<SearchBoxProps> = memo(
             autoComplete: "off",
             value: inputValues[key]?.toString() ?? "",
             onChange: (e: string | number) => handleInputChange(e, key),
-            style: { ...style, width: itemStyle?.width ?? "200px" },
+            style: { ...style },
             ...restProps
           }),
           [key, inputValues, handleInputChange]
@@ -98,14 +97,14 @@ export const SearchBox: React.FC<SearchBoxProps> = memo(
         const selectProps = {
           onChange: (e: any) => handleInputChange(e, key),
           value: inputValues[key] === undefined ? undefined : inputValues[key],
-          style: { ...style, width: itemStyle?.width ?? "200px" },
+          style: { ...style },
           ...(selectGroupProps as unknown as any)
         };
 
         const DatePickerProps = {
           onChange: (e: any) => handleInputChange(e, key),
           value: inputValues[key] === undefined ? undefined : inputValues[key],
-          style: { ...style, width: itemStyle?.width ?? "200px" },
+          style: { ...style },
           ...(DatePickerItemProps as unknown as any)
         };
 
@@ -139,7 +138,7 @@ export const SearchBox: React.FC<SearchBoxProps> = memo(
     return (
       <Space className={searchBox.searchBoxContainer}>
         {inputList.map(renderFormItem)}
-        <Space style={{ marginBottom: "10px" }}>
+        <Space className="mb-[10px]">
           {butGroup?.ButtonGroup ? (
             <ButtonGroup>
               <Button

@@ -72,8 +72,8 @@ const Qrcode = () => {
         自定义二维码
       </Button>
       <Modal
+        className="!top-[-100px]"
         title="自定义二维码"
-        style={{ top: -100 }}
         visible={visible}
         onCancel={() => {
           setVisible(!visible);
@@ -82,8 +82,8 @@ const Qrcode = () => {
         footer={null}
       >
         <Modal
+          className="!top-[-100px] !text-center"
           title="生成二维码"
-          style={{ top: -100, textAlign: "center" }}
           visible={visible1}
           onCancel={() => {
             setVisible1(!visible1);
@@ -133,7 +133,7 @@ const Qrcode = () => {
               rules={[{ required: true, message: "请输入内容" }]}
             >
               <Input
-                style={{ width: 300 }}
+                className="!w-[200px]"
                 placeholder="请输入内容"
                 autoComplete="off"
               />
@@ -145,7 +145,7 @@ const Qrcode = () => {
               rules={[{ required: true, message: "请输入链接地址" }]}
             >
               <Input
-                style={{ width: 300 }}
+                className="!w-[200px]"
                 placeholder="请输入链接地址"
                 autoComplete="off"
               />
@@ -153,16 +153,16 @@ const Qrcode = () => {
           )}
           <FormItem label="颜色选择" field="darkColor">
             <Input
+              className="!w-[100px]"
               type="color"
-              style={{ width: 100 }}
               placeholder="请输入颜色选择"
               autoComplete="off"
             />
           </FormItem>
           <FormItem label="颜色选择" field="lightColor">
             <Input
+              className="!w-[100px]"
               type="color"
-              style={{ width: 100 }}
               placeholder="请输入颜色选择"
               autoComplete="off"
             />
@@ -182,7 +182,7 @@ const Qrcode = () => {
           </FormItem>
           <FormItem wrapperCol={{ offset: 7 }}>
             <Button
-              style={{ marginRight: 12 }}
+              className="mr-[12px]"
               onClick={() => {
                 setVisible(!visible);
                 form.resetFields();
@@ -196,7 +196,7 @@ const Qrcode = () => {
           </FormItem>
         </Form>
       </Modal>
-      <div style={{ display: "flex", flexWrap: "wrap" }}>
+      <div className="flex flex-wrap">
         <Hook text={"测试数据"} tag={"img"} opts={options1} type={"text"} />
         <Hook text={"https://www.baidu.com"} tag={"img"} type={"link"} />
         <Hook

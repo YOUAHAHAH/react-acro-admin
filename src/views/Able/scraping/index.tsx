@@ -77,8 +77,8 @@ const Scraping = () => {
         自定义刮刮乐
       </Button>
       <Modal
+        className="!top-[-100px]"
         title="自定义刮刮乐"
-        style={{ top: -100 }}
         visible={visible}
         onCancel={() => {
           setVisible(!visible);
@@ -87,8 +87,8 @@ const Scraping = () => {
         footer={null}
       >
         <Modal
+          className="!text-center !top-[-100px]"
           title="生成刮刮乐"
-          style={{ textAlign: "center", top: -100 }}
           visible={visible1}
           onCancel={() => {
             setVisible1(!visible1);
@@ -113,7 +113,7 @@ const Scraping = () => {
         >
           <FormItem label="刮刮乐内容" field="text">
             <Input
-              style={{ width: 300 }}
+              className="!w-[300px]"
               placeholder="请输入刮刮乐内容"
               autoComplete="off"
               max={400}
@@ -121,14 +121,14 @@ const Scraping = () => {
             />
           </FormItem>
           <FormItem label="背景颜色选择" field="backgroundColor">
-            <Input type="color" style={{ width: 100 }} autoComplete="off" />
+            <Input className="!w-[100px]" type="color" autoComplete="off" />
           </FormItem>
           <FormItem label="文字颜色选择" field="textColor">
-            <Input type="color" style={{ width: 100 }} autoComplete="off" />
+            <Input className="!w-[100px]" type="color" autoComplete="off" />
           </FormItem>
           <FormItem wrapperCol={{ offset: 7 }}>
             <Button
-              style={{ marginRight: 12 }}
+              className="mr-[12px]"
               onClick={() => {
                 setVisible(!visible);
                 form.resetFields();
@@ -142,7 +142,7 @@ const Scraping = () => {
           </FormItem>
         </Form>
       </Modal>
-      <div style={{ display: "flex", flexWrap: "wrap", marginTop: "10px" }}>
+      <div className="flex flex-wrap mt-[10px]">
         <CustomHook {...options} />
       </div>
     </>

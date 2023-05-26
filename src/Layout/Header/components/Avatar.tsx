@@ -9,17 +9,17 @@ const list: listAvatar[] = [
   {
     key: "1",
     label: "个人中心",
-    icon: <IconUser style={{ marginRight: "5px" }} />
+    icon: <IconUser className="mr-[5px]" />
   },
   {
     key: "2",
     label: "锁定屏幕",
-    icon: <IconLock style={{ marginRight: "5px" }} />
+    icon: <IconLock className="mr-[5px]" />
   },
   {
     key: "3",
     label: "退出登录",
-    icon: <IconExport style={{ marginRight: "5px" }} />
+    icon: <IconExport className="mr-[5px]" />
   }
 ];
 

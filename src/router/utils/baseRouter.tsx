@@ -17,12 +17,7 @@ export const lazyLoad = (
         <Spin
           dot
           size={40}
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            height: "100%"
-          }}
+          className="!flex items-center justify-center h-full"
         />
       }
     >

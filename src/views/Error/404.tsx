@@ -7,7 +7,7 @@ const Error404 = () => {
   return (
     <div>
       <Result
-        style={{ margin: "200px auto" }}
+        className="!pt-[200px] mx-auto"
         status="404"
         subTitle="Whoops, that page is gone. "
         extra={[
