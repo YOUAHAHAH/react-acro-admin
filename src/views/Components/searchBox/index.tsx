@@ -1,8 +1,6 @@
 import { useState } from "react";
-import SearchBox, {
-  defaultValueType
-} from "@/views/components/searchBox/src/index";
-import MessageCom from "@/views/components/message/src/index";
+import SearchBox, { defaultValueType } from "@/components/SearchBox/src/index";
+import MessageCom from "@/components/Message/src/index";
 
 const ActivityCenter = () => {
   const [loading1, setLoading1] = useState(false);
@@ -87,7 +85,7 @@ const ActivityCenter = () => {
             label: "输入框",
             placeholder: "Please Enter something",
             allowClear: true,
-            defaultValue: "火影忍者",
+            defaultValue: "火影忍者"
           },
           {
             key: "inputNum",

@@ -17,9 +17,7 @@ const ableRouter: Array<RouteObject> = [
       {
         path: "/components/searchBox",
         element: lazyLoad(
-          React.lazy(
-            () => import("@/views/components/searchBox/components/searchBox")
-          )
+          React.lazy(() => import("@/views/Components/searchBox"))
         ),
         meta: {
           requiresAuth: true,
@@ -30,14 +28,23 @@ const ableRouter: Array<RouteObject> = [
       {
         path: "/components/message",
         element: lazyLoad(
-          React.lazy(
-            () => import("@/views/components/message/components/message")
-          )
+          React.lazy(() => import("@/views/Components/message"))
         ),
         meta: {
           requiresAuth: true,
           title: "消息提示",
           key: "message"
+        }
+      },
+      {
+        path: "/components/download",
+        element: lazyLoad(
+          React.lazy(() => import("@/views/Components/download"))
+        ),
+        meta: {
+          requiresAuth: true,
+          title: "下载组件",
+          key: "download"
         }
       }
     ]

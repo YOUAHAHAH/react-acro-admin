@@ -70,7 +70,6 @@ export const SearchBox: React.FC<SearchBoxProps> = memo(
         ...rest
       }: InputItemProps) => {
         const {
-          style: itemStyle,
           radioGroupProps,
           selectGroupProps,
           DatePickerItemProps,
@@ -81,7 +80,7 @@ export const SearchBox: React.FC<SearchBoxProps> = memo(
             autoComplete: "off",
             value: inputValues[key]?.toString() ?? "",
             onChange: (e: string | number) => handleInputChange(e, key),
-            style: { ...style },
+            style: { ...style, width: style?.width ?? "200px" },
             ...restProps
           }),
           [key, inputValues, handleInputChange]
@@ -97,14 +96,14 @@ export const SearchBox: React.FC<SearchBoxProps> = memo(
         const selectProps = {
           onChange: (e: any) => handleInputChange(e, key),
           value: inputValues[key] === undefined ? undefined : inputValues[key],
-          style: { ...style },
+          style: { ...style, width: style?.width ?? "200px" },
           ...(selectGroupProps as unknown as any)
         };
 
         const DatePickerProps = {
           onChange: (e: any) => handleInputChange(e, key),
           value: inputValues[key] === undefined ? undefined : inputValues[key],
-          style: { ...style },
+          style: { ...style, width: style?.width ?? "200px" },
           ...(DatePickerItemProps as unknown as any)
         };
 

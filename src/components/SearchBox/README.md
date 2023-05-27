@@ -18,10 +18,8 @@
 
 ```typescript
 import { useState } from "react";
-import SearchBox, {
-  defaultValueType
-} from "@/views/components/searchBox/src/index";
-import { Message } from "@arco-design/web-react";
+import SearchBox, { defaultValueType } from "@/components/SearchBox/src/index";
+import MessageCom from "@/components/Message/src/index";
 
 const ActivityCenter = () => {
   const [loading1, setLoading1] = useState(false);
@@ -35,10 +33,22 @@ const ActivityCenter = () => {
     setLoading(true);
     setTimeout(() => {
       Object.keys(keyword).length === 0
-        ? Message.warning("暂无搜索关键词！")
-        : Message.info({
-            content: `${JSON.stringify(keyword)}`
-          });
+        ? (
+            MessageCom({
+              type: "warning",
+              props: {
+                content: "暂无搜索关键词！"
+              }
+            }) as any
+          )()
+        : (
+            MessageCom({
+              type: "info",
+              props: {
+                content: `${JSON.stringify(keyword)}`
+              }
+            }) as any
+          )();
       setLoading(false);
     }, 300);
   };
@@ -46,7 +56,14 @@ const ActivityCenter = () => {
   const clickReset = (setLoading: { (arg0: boolean): void }) => {
     setLoading(true);
     setTimeout(() => {
-      Message.success("重置成功！");
+      (
+        MessageCom({
+          type: "success",
+          props: {
+            content: "重置成功！"
+          }
+        }) as any
+      )();
       setLoading(false);
     }, 300);
   };
@@ -76,7 +93,7 @@ const ActivityCenter = () => {
   };
 
   return (
-    <div style={{ display: "flex", flexDirection: "column" }}>
+    <div className="flex flex-col">
       <SearchBox
         onSearch={handleSearch1}
         onReset={handleReset1}

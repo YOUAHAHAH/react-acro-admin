@@ -17,16 +17,9 @@
 # 例子
 
 ```typescript
-import { useEffect, useState } from "react";
-import MessageCom from "@/views/components/message/src/index";
-import {
-  Button,
-  Space,
-  Icon,
-  Divider,
-  Tooltip,
-  Message
-} from "@arco-design/web-react";
+import { useState } from "react";
+import MessageCom from "@/components/Message/src/index";
+import { Button, Space, Icon, Divider, Tooltip } from "@arco-design/web-react";
 import {
   IconExclamationCircle,
   IconFaceSmileFill
@@ -53,13 +46,6 @@ const MessageList = () => {
     const delay = Math.max(0, endTime - startTime + 2000); // 计算延迟时间参数
     return { delay, data };
   };
-
-  useEffect(() => {
-    Message.config({
-      maxCount: 2,
-      duration: 1000
-    });
-  }, []);
 
   return (
     <>

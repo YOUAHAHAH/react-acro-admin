@@ -11,8 +11,8 @@ import dayjs from "dayjs";
 import { queryGroupSite } from "@/api/modules/material";
 import SearchBox, {
   defaultValueType
-} from "@/views/components/searchBox/src/index";
-import MessageCom from "@/views/components/message/src";
+} from "@/components/SearchBox/src/index";
+import MessageCom from "@/components/Message/src";
 import ModalGroup from "./modalGroup";
 import { useConfigTable } from "@/Hooks/useColumn";
 import { typeF } from "@/utils/baseFun";
