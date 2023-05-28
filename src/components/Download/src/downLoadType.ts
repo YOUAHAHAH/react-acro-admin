@@ -13,6 +13,7 @@ export type DownloadProps = {
   text?: string | number;
   Btnprops?: ButtonProps;
   style?: React.CSSProperties;
+  className?: string;
   onSuccess?: (url?: string) => void;
   onError?: (error: Error) => void;
   children?: React.ReactNode;

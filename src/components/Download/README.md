@@ -26,7 +26,7 @@ const Download = () => {
       <DownloadFile
         fileOption={{
           url: "https://avatars.githubusercontent.com/u/101163308?v=4",
-          name: "acroReact_ts"
+          name: "react-acro-admin"
         }}
         onSuccess={url => console.log(url)}
         onError={error => console.error("Download failed: ", error)}
@@ -35,7 +35,7 @@ const Download = () => {
       <DownloadFile
         fileOption={{
           url: "https://avatars.githubusercontent.com/u/101163308?v=4",
-          name: "acroReact_ts"
+          name: "react-acro-admin"
         }}
         onSuccess={url => console.log(url)}
         onError={error => console.error("Download failed: ", error)}
@@ -56,6 +56,7 @@ export default Download;
 | ---------- | ------------- | ------------------------- | ------ | ---- |
 | text       | 默认按钮文本  | string \| number          | `下载` | -    |
 | style      | 节点样式      | React.CSSProperties       | `-`    | -    |
+| className  | 节点类名      | string                    | `-`    | -    |
 | Btnprops   | 默认按钮props | ButtonProps               | `-`    | -    |
 | onSuccess  | 成功回调      | (url?: string) => void;   | `-`    | -    |
 | onError    | 失败回调      | (error: Error) => void;   | `-`    | -    |

@@ -110,12 +110,13 @@ const Download = ({
   Btnprops,
   children,
   style,
+  className,
   onSuccess,
   onError,
   fileOption,
   loading = false,
   text = "下载"
-}: DownloadProps & { fileOption?: DownloadOptions }) => {
+}: DownloadProps) => {
   const [isDownloading, setIsDownloading] = useState(loading);
 
   const handleDownload = async (event: any) => {
@@ -140,15 +141,14 @@ const Download = ({
   return (
     <>
       {children ? (
-        <div onClick={handleDownload} style={{ ...style }}>
-          {children}
-        </div>
+        <div onClick={handleDownload}>{children}</div>
       ) : (
         <Button
           {...Btnprops}
           onClick={handleDownload}
           loading={loading ? isDownloading : false}
           style={{ ...style }}
+          className={className}
         >
           {text}
         </Button>
@@ -157,4 +157,20 @@ const Download = ({
   );
 };
 
+/**
+ *
+ * @param {Iterable<number>} buffer
+ * @returns base64编码
+ */
+const arrayBufferToBase64 = (buffer: Iterable<number>) => {
+  let binary = "";
+  const bytes = new Uint8Array(buffer);
+  const len = bytes.byteLength;
+  for (let i = 0; i < len; i++) {
+    binary += String.fromCharCode(bytes[i]);
+  }
+  return window.btoa(binary);
+};
+
+export { arrayBufferToBase64 };
 export default Download;

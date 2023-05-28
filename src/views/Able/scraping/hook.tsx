@@ -6,7 +6,7 @@ const Hook = (props: ctxProps) => {
     backgroundColor = "#eee",
     font = "22px serif",
     textColor = "#333",
-    text = "acroReact_ts",
+    text = "react-acro-admin",
     onMouseDown,
     onMouseUp,
     generate

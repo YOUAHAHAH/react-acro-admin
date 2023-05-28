@@ -42,7 +42,7 @@ const LoginForm = (props: any) => {
     <>
       <div className={l.login_logo}>
         <img src={logo} />
-        <span className={l.logo_text}>acroReact_ts</span>
+        <span className={l.logo_text}>react-acro-admin</span>
       </div>
       <Form
         form={form}
