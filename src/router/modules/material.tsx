@@ -14,17 +14,18 @@ const materialRouter: Array<RouteObject> = [
       icon: <IconExperiment />
     },
     children: [
-      {
-        path: "/material/materialList",
-        element: lazyLoad(
-          React.lazy(() => import("@/views/Material/materialList"))
-        ),
-        meta: {
-          requiresAuth: true,
-          title: "物料查询",
-          key: "btn"
-        }
-      },
+      // {
+      //   path: "/material/materialList",
+      //   element: lazyLoad(
+      //     React.lazy(() => import("@/views/Material/materialList"))
+      //   ),
+      //   meta: {
+      //     requiresAuth: true,
+      //     title: "物料查询",
+      //     key: "materialList",
+      //     keepAlive: true
+      //   }
+      // },
       {
         path: "/material/materialGroup",
         element: lazyLoad(
@@ -33,7 +34,8 @@ const materialRouter: Array<RouteObject> = [
         meta: {
           requiresAuth: true,
           title: "团队查询",
-          key: "page"
+          key: "materialGroup",
+          keepAlive: true
         }
       }
     ]

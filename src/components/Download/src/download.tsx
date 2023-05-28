@@ -114,10 +114,10 @@ const Download = ({
   onSuccess,
   onError,
   fileOption,
-  loading = false,
+  loading,
   text = "下载"
 }: DownloadProps) => {
-  const [isDownloading, setIsDownloading] = useState(loading);
+  const [isDownloading, setIsDownloading] = useState(false);
 
   const handleDownload = async (event: any) => {
     setIsDownloading(true);
@@ -157,20 +157,4 @@ const Download = ({
   );
 };
 
-/**
- *
- * @param {Iterable<number>} buffer
- * @returns base64编码
- */
-const arrayBufferToBase64 = (buffer: Iterable<number>) => {
-  let binary = "";
-  const bytes = new Uint8Array(buffer);
-  const len = bytes.byteLength;
-  for (let i = 0; i < len; i++) {
-    binary += String.fromCharCode(bytes[i]);
-  }
-  return window.btoa(binary);
-};
-
-export { arrayBufferToBase64 };
 export default Download;

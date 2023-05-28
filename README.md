@@ -17,7 +17,7 @@
     <a href="https://vitejs.cn/">
         <img src="https://img.shields.io/badge/Vite-^4.1.0-9cf.svg">
     </a>
-  	<a href="https://github.com/YOUAHAHAH/acroReact_ts">
+  	<a href="https://github.com/YOUAHAHAH/react-acro-admin">
         <img src="https://img.shields.io/badge/license-MIT-9cf.svg">
     </a>
 </p>
@@ -41,13 +41,13 @@
 
 
 ```bash
-git clone https://github.com/YOUAHAHAH/acroReact_ts.git
+git clone https://github.com/YOUAHAHAH/react-acro-admin.git
 ```
 
 - 安装依赖
 
 ```bash
-cd acroReact_ts
+cd react-acro-admin
 
 npm install
 
@@ -72,7 +72,7 @@ npm build
 
 ## 如何贡献
 
-非常欢迎你的加入！[提一个 Issue](hhttps://github.com/YOUAHAHAH/acroReact_ts/issues/new) 或者提交一个 Pull Request.
+非常欢迎你的加入！[提一个 Issue](hhttps://github.com/YOUAHAHAH/react-acro-admin/issues/new) 或者提交一个 Pull Request.
 
 ## 交流
 

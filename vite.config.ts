@@ -24,7 +24,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
       picocolors.green(
         `👏欢迎使用${picocolors.blue(
           "[react-acro-admin]"
-        )}，如果您感觉不错，记得点击后面链接给个star哦💖 https://github.com/YOUAHAHAH/acroReact_ts`
+        )}，如果您感觉不错，记得点击后面链接给个star哦💖 https://github.com/YOUAHAHAH/react-acro-admin`
       )
     )
   );

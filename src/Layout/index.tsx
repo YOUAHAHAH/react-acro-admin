@@ -8,7 +8,7 @@ import LockPage from "./Header/components/Lock/LockPage";
 
 const Content = Layout.Content;
 
-const LayoutIndex = (props: any) => {
+const LayoutIndex = (props: { lock: boolean }) => {
   const { lock } = props;
 
   return (
@@ -36,7 +36,7 @@ const LayoutIndex = (props: any) => {
   );
 };
 
-const mapStateToProps = (state: any) => ({
+const mapStateToProps = (state: { Lock: { isLock: boolean } }) => ({
   lock: state.Lock.isLock
 });
 export default connect(mapStateToProps)(LayoutIndex);
