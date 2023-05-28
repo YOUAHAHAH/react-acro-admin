@@ -1,7 +1,11 @@
-import { Navigate, useRoutes } from "react-router-dom";
+import { useEffect } from "react";
+import { Navigate, useLocation, useRoutes } from "react-router-dom";
 import Login from "@/views/Login/index";
 import Error404 from "@/views/Error/404";
 import { RouteObject } from "./type";
+
+// * 后台标题
+const pageTitle = import.meta.env.VITE_DEFAULT_TITLE;
 
 // * 导入所有router
 const metaRouters = import.meta.globEager("./modules/*.tsx");
@@ -41,6 +45,17 @@ export const rootRouter: RouteObject[] = [
 
 const Router = () => {
   const routes = useRoutes(rootRouter as any);
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    const title = routes?.props.match.route.children?.filter(
+      (item: { path: string }) => item.path === pathname
+    );
+
+    document.title =
+      title === undefined ? pageTitle : title[0].meta.title + " | " + pageTitle;
+  }, [routes]);
+
   return routes;
 };
 
