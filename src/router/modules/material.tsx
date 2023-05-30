@@ -9,7 +9,7 @@ const materialRouter: Array<RouteObject> = [
     path: "/material",
     meta: {
       title: "物料管理",
-      rank: 12,
+      rank: 15,
       isChildren: true,
       icon: <IconExperiment />
     },

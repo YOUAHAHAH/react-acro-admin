@@ -9,7 +9,7 @@ const ableRouter: Array<RouteObject> = [
     path: "/components",
     meta: {
       title: "组件",
-      rank: 15,
+      rank: 12,
       isChildren: true,
       icon: <IconApps />
     },

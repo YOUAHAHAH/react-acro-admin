@@ -4,6 +4,7 @@ import { resolve } from "path";
 import react from "@vitejs/plugin-react";
 import vitePluginImp from "vite-plugin-imp";
 import { viteMockServe } from "vite-plugin-mock";
+import { visualizer } from "rollup-plugin-visualizer";
 import picocolors from "picocolors";
 import dayjs from "dayjs";
 
@@ -12,6 +13,17 @@ const { dependencies, devDependencies, name, version } = pkg;
 const __APP_INFO__ = {
   pkg: { dependencies, devDependencies, name, version },
   lastBuildTime: dayjs().format("YYYY-MM-DD HH:mm:ss")
+};
+
+/** 路径查找 */
+const pathResolve = (dir: string): string => {
+  return resolve(__dirname, ".", dir);
+};
+
+/** 设置别名 */
+const alias: Record<string, string> = {
+  "@": pathResolve("src"),
+  "@build": pathResolve("build")
 };
 
 // https://vitejs.dev/config/
@@ -30,10 +42,9 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
   );
 
   return {
+    base: "./",
     resolve: {
-      alias: {
-        "@": resolve(__dirname, "./src")
-      }
+      alias
     },
     server: {
       hmr: true,
@@ -69,17 +80,61 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
             setupProdMockServer();
           `,
         logger: false
+      }),
+      visualizer({
+        gzipSize: true,
+        brotliSize: true,
+        emitFile: false,
+        sourcemap: true,
+        filename: "test.html", //分析图生成的文件名
+        open: true //如果存在本地服务端口，将在打包后自动展示
       })
     ],
 
     css: {
       preprocessorOptions: {
         less: {
-          // 支持内联 JavaScript
-          javascriptEnabled: true
+          javascriptEnabled: true // 支持内联 JavaScript
         }
       }
     },
+
+    build: {
+      minify: "terser", // build配置项minify没有配置，默认是esbuild，需要配置为terser
+      terserOptions: {
+        compress: {
+          drop_console: true,
+          drop_debugger: true
+        }
+      }, // 清除console和debugger
+      sourcemap: false,
+      chunkSizeWarningLimit: 4000, // 消除打包大小超过500kb警告
+      rollupOptions: {
+        external: [
+          "@arco-design/web-react/es/input-number",
+          "@arco-design/web-react/es/date-picker"
+        ],
+        input: {
+          index: pathResolve("index.html")
+        },
+        // 静态资源分拆打包
+        output: {
+          manualChunks(id: string | string[]) {
+            if (id.includes("node_modules")) {
+              return id
+                .toString()
+                .split("node_modules/")[1]
+                .split("/")[0]
+                .toString();
+            }
+          },
+          chunkFileNames: "static/js/[name]-[hash].js",
+          entryFileNames: "static/js/[name]-[hash].js",
+          assetFileNames: "static/[ext]/[name]-[hash].[ext]"
+        }
+      }
+    },
+
     define: {
       __INTLIFY_PROD_DEVTOOLS__: false,
       __APP_INFO__: JSON.stringify(__APP_INFO__)

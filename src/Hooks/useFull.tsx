@@ -73,12 +73,10 @@ export function toggleFull(el?: HTMLElement): boolean {
 export const checkFull = () => {
   //  考虑兼容问题
   let isFull: any =
-    document.mozFullScreen ||
-    document.fullScreen ||
-    document.webkitIsFullScreen ||
-    document.webkitRequestFullScreen ||
-    document.mozRequestFullScreen ||
-    document.msFullscreenEnabled ||
+    document.fullscreenElement ||
+    (document as any).mozFullScreenElement ||
+    (document as any).webkitFullscreenElement ||
+    (document as any).msFullscreenElement ||
     null;
   if (isFull === undefined) {
     isFull = false;

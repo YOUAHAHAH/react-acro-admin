@@ -9,7 +9,7 @@ const menuRouter: Array<RouteObject> = [
     path: "/menu",
     meta: {
       title: "嵌套菜单",
-      rank: 11,
+      rank: 14,
       isChildren: true,
       icon: <IconUnorderedList />
     },

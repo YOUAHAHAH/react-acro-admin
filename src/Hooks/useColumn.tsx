@@ -94,7 +94,7 @@ const useConfigTable = (props: {
     [state.items, setColumnsValue]
   );
 
-  const SortableItem = SortableElement(({ value }: any) => (
+  const SortableItem = SortableElement(({ value }: { value: string }) => (
     <li key={`item-${value}`} className="z-[999999] m-1">
       <span className="cursor-grab mx-1">
         <DragHandle />
@@ -117,9 +117,10 @@ const useConfigTable = (props: {
     </li>
   ));
 
-  const sortedItems = state.items.map((value, index) => (
-    <SortableItem key={`item-${index}`} index={index} value={value} />
-  ));
+  const sortedItems = state.items.map((value, index) => {
+    // @ts-ignore
+    return <SortableItem key={`item-${index}`} index={index} value={value} />;
+  });
 
   const SortableList = SortableContainer(({ items }: any) => {
     return <ul className="flex flex-col">{items}</ul>;
@@ -194,6 +195,7 @@ const useConfigTable = (props: {
                   列展示
                 </Checkbox> */}
                 <SortableList
+                  // @ts-ignore
                   items={sortedItems}
                   onSortEnd={onSortEnd}
                   useDragHandle

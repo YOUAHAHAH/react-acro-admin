@@ -9,7 +9,7 @@ const ableRouter: Array<RouteObject> = [
     path: "/able",
     meta: {
       title: "功能",
-      rank: 14,
+      rank: 11,
       isChildren: true,
       icon: <IconCommon />
     },
@@ -30,6 +30,15 @@ const ableRouter: Array<RouteObject> = [
           requiresAuth: true,
           title: "刮刮乐",
           key: "scraping"
+        }
+      },
+      {
+        path: "/able/watermark",
+        element: lazyLoad(React.lazy(() => import("@/views/Able/watermark"))),
+        meta: {
+          requiresAuth: true,
+          title: "水印",
+          key: "watermark"
         }
       }
     ]

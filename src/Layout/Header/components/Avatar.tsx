@@ -5,6 +5,10 @@ import { IconExport, IconUser, IconLock } from "@arco-design/web-react/icon";
 import LockModal from "./Lock/LockModal";
 import { listAvatar } from "@/Layout/type";
 
+type LockRef = React.MutableRefObject<null> & {
+  getModalVisible: () => void;
+};
+
 const list: listAvatar[] = [
   {
     key: "1",
@@ -25,7 +29,7 @@ const list: listAvatar[] = [
 
 const HeaderAvatar = () => {
   const navigate = useNavigate();
-  const lockRef = useRef<React.MutableRefObject<null> | undefined>();
+  const lockRef = useRef<LockRef>();
 
   const useLockModal = () => {
     lockRef.current?.getModalVisible();

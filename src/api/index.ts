@@ -4,7 +4,8 @@ import axios, {
   AxiosError,
   AxiosRequestConfig,
   AxiosResponse,
-  CustomParamsSerializer
+  CustomParamsSerializer,
+  AxiosRequestHeaders
 } from "axios";
 import { Message } from "@arco-design/web-react";
 import { AxiosCanceler } from "./utils/axiosCancel";
@@ -37,7 +38,7 @@ class RequestHttp {
      * @description 请求拦截器
      */
     this.service.interceptors.request.use(
-      (config: AxiosRequestConfig) => {
+      (config: AxiosRequestConfig<any>) => {
         NProgress.start();
         // * 将当前请求添加到 pending 中
         axiosCanceler.addPending(config);
@@ -48,7 +49,7 @@ class RequestHttp {
           headers: {
             ...config.headers,
             "x-access-token": token
-          }
+          } as unknown as AxiosRequestHeaders
         };
       },
       (error: AxiosError) => {
