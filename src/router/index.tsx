@@ -48,12 +48,34 @@ const Router = () => {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    const title = routes?.props.match.route.children?.filter(
-      (item: { path: string }) => item.path === pathname
-    );
+    let routeTitle: string = "";
+
+    const title = (route: {
+      path: string;
+      meta: {
+        title: string;
+        isChildren: boolean;
+      };
+      children: any[];
+    }) => {
+      if (
+        route.meta.isChildren === false ||
+        route.path == "/*" ||
+        route.path == "/login"
+      )
+        return (routeTitle = route.meta.title);
+      route.children?.map(item => {
+        if (item.path === pathname) {
+          return (routeTitle = item.meta.title);
+        }
+        title(item);
+      });
+      return pageTitle;
+    };
+    title(routes?.props.match.route);
 
     document.title =
-      title === undefined ? pageTitle : title[0].meta.title + " | " + pageTitle;
+      title === undefined ? pageTitle : `${routeTitle} | ${pageTitle}`;
   }, [routes]);
 
   return routes;

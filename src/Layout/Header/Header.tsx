@@ -1,5 +1,4 @@
 import { Layout } from "@arco-design/web-react";
-import HeaderLogo from "./components/Logo";
 import HaerderFullscreen from "./components/Fullscreen";
 import HaerderTheme from "./components/Theme";
 import HaerderSetting from "./components/Setting";
@@ -14,7 +13,6 @@ const LayoutHeader = () => {
   return (
     <Header className={l.header}>
       <div className={l.headerBreadcrumb}>
-        <HeaderLogo />
         <HeaderBreadCrumb />
       </div>
       <div className={l.headerBox}>
