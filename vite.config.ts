@@ -111,8 +111,8 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
       chunkSizeWarningLimit: 4000, // 消除打包大小超过500kb警告
       rollupOptions: {
         external: [
-          "@arco-design/web-react/es/input-number",
-          "@arco-design/web-react/es/date-picker"
+          // "@arco-design/web-react/es/input-number",
+          // "@arco-design/web-react/es/date-picker"
         ],
         input: {
           index: pathResolve("index.html")
