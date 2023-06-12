@@ -9,7 +9,7 @@ const menuRouter: Array<RouteObject> = [
     path: "/link",
     meta: {
       title: "外部链接",
-      rank: 16,
+      rank: 99,
       isChildren: true,
       icon: <IconLink />
     },

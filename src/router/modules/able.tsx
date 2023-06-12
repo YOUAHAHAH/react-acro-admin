@@ -31,15 +31,6 @@ const ableRouter: Array<RouteObject> = [
           title: "刮刮乐",
           key: "scraping"
         }
-      },
-      {
-        path: "/able/watermark",
-        element: lazyLoad(React.lazy(() => import("@/views/Able/watermark"))),
-        meta: {
-          requiresAuth: true,
-          title: "水印",
-          key: "watermark"
-        }
       }
     ]
   }

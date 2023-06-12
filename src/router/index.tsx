@@ -58,11 +58,9 @@ const Router = () => {
       };
       children: any[];
     }) => {
-      if (
-        route.meta.isChildren === false ||
-        route.path == "/*" ||
-        route.path == "/login"
-      )
+      if (route.path == "/" || "/login") {
+        return (routeTitle = "登录");
+      } else if (route.meta?.isChildren === false || route.path == "/*")
         return (routeTitle = route.meta.title);
       route.children?.map(item => {
         if (item.path === pathname) {

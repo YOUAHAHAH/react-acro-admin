@@ -9,7 +9,7 @@ const welcomeRouter: Array<RouteObject> = [
     path: "/welcome/index",
     meta: {
       title: "首页",
-      rank: 10,
+      rank: 1,
       isChildren: false,
       icon: <IconHome />
     },
