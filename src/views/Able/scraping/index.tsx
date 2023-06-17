@@ -1,7 +1,8 @@
-import { useState } from "react";
-import { Button, Form, Modal, Input } from "@arco-design/web-react";
+import { useState, useRef, useEffect } from "react";
+import { Button, Form, Modal, Input, Divider } from "@arco-design/web-react";
 import { ctxProps } from "../type";
 import Hook from "./hook";
+import SignatureCanvas from "react-signature-canvas";
 
 const FormItem = Form.Item;
 
@@ -14,68 +15,103 @@ const formItemLayout = {
   }
 };
 
-const options: ctxProps = {
-  backgroundColor: "#eee",
-  font: "bold 20px Arial",
-  textColor: "#333",
-  text: Math.floor(Math.random() * 999901 + 100000),
-  generate: false
-};
-
 const Scraping = () => {
   const [form] = Form.useForm();
+  const sigCanvasRef = useRef<SignatureCanvas | null>(null);
+  const [options, setOptions] = useState<ctxProps>({
+    backgroundColor: "#eee",
+    font: "bold 20px Arial",
+    textColor: "#333",
+    text: Math.floor(Math.random() * 999901 + 100000),
+    generate: false
+  });
   const [visible, setVisible] = useState<boolean>(false);
   const [visible1, setVisible1] = useState<boolean>(false);
   const [hookData, setHookData] = useState<ctxProps>();
+  const [signImg, setSignImg] = useState<string>("");
+  const [showImg, setShowImg] = useState<boolean>(false);
+  const [clearCanvas, setClearCanvas] = useState(false);
 
-  const CustomHook = ({
-    backgroundColor,
-    font,
-    textColor,
-    text,
-    generate
-  }: ctxProps) => {
-    const handleMouseDown = (e: any) => {
-      if (e.button === 0) {
-        const canvas = e.target;
-        const ctx = canvas.getContext("2d");
-        if (!ctx) return;
-        e.target.onmousemove = (m: any) => {
-          const x = m.clientX - canvas.offsetLeft;
-          const y = m.clientY - canvas.offsetTop;
-          ctx.clearRect(x - 230, y - 160, 20, 20);
-        };
-      }
-    };
-    const handleMouseUp = (e: any) => {
-      if (e.button === 0) {
-        e.target.onmousemove = null;
-      }
-    };
-
-    return (
-      <Hook
-        backgroundColor={backgroundColor}
-        font={font}
-        textColor={textColor}
-        text={text}
-        generate={generate}
-        onMouseDown={handleMouseDown}
-        onMouseUp={handleMouseUp}
-      />
-    );
+  /**
+   * 刷新
+   */
+  const handleRefresh = () => {
+    setClearCanvas(true);
   };
+
+  /**
+   * 签字确认
+   */
+  const handleSignature = () => {
+    setSignImg(sigCanvasRef.current?.toDataURL("image/png") || "");
+    setShowImg(true);
+  };
+
+  /**
+   * 清除
+   */
+  const handleClearSign = () => {
+    sigCanvasRef.current?.clear();
+    setSignImg("");
+    setShowImg(false);
+  };
+
+  /**
+   * 下载图片
+   */
+  const handleDownloadImage = () => {
+    const link = document.createElement("a");
+    link.href = signImg;
+    link.download = "signature.png";
+    link.click();
+  };
+
+  useEffect(() => {
+    if (clearCanvas) {
+      setClearCanvas(false);
+    }
+  }, [clearCanvas]);
 
   return (
     <>
+      <Divider orientation={"left"}>刮刮乐</Divider>
       <Button
         type="primary"
         onClick={() => {
           setVisible(true);
         }}
+        className="mr-[10px]"
       >
         自定义刮刮乐
       </Button>
+      <Button onClick={handleRefresh}>刷新</Button>
+      <div className="flex flex-wrap mt-[10px]">
+        <Hook {...options} clear={clearCanvas} />
+      </div>
+      <Divider orientation={"left"}>手写签名</Divider>
+      <Button onClick={handleSignature} type="primary" className="mr-[10px]">
+        签字确认
+      </Button>
+      <Button onClick={handleClearSign} className="mr-[10px]">
+        清除
+      </Button>
+      {showImg ? (
+        <Button onClick={handleDownloadImage} type="primary" status="success">
+          下载图片
+        </Button>
+      ) : null}
+      <div className="flex flex-wrap mt-[10px]">
+        <SignatureCanvas
+          ref={sigCanvasRef}
+          penColor="#000"
+          backgroundColor="#EEEEEE"
+          canvasProps={{ width: 400, height: 200 }}
+        />
+        {signImg && (
+          <img width={400} height={200} src={signImg} className="ml-[10px]" />
+        )}
+      </div>
+
       <Modal
         className="!top-[-100px]"
         title="自定义刮刮乐"
@@ -95,7 +131,7 @@ const Scraping = () => {
           }}
           footer={null}
         >
-          {hookData && <CustomHook {...hookData} />}
+          {hookData && <Hook {...hookData} />}
         </Modal>
         <Form
           form={form}
@@ -142,9 +178,6 @@ const Scraping = () => {
           </FormItem>
         </Form>
       </Modal>
-      <div className="flex flex-wrap mt-[10px]">
-        <CustomHook {...options} />
-      </div>
     </>
   );
 };

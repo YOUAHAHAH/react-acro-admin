@@ -7,8 +7,7 @@ const Hook = (props: ctxProps) => {
     font = "22px serif",
     textColor = "#333",
     text = "react-acro-admin",
-    onMouseDown,
-    onMouseUp,
+    clear = false,
     generate
   } = props;
 
@@ -47,7 +46,7 @@ const Hook = (props: ctxProps) => {
           canvas.onmousemove = null;
         }
       };
-    }, []);
+    }, [clear]);
   } else {
     useEffect(() => {
       const canvas = canvasRef.current;
@@ -66,14 +65,25 @@ const Hook = (props: ctxProps) => {
 
       textCtx.fillText(`${text}`, 400 / 2.5, 100);
 
-      if (onMouseDown) {
-        canvas.onmousedown = onMouseDown;
-      }
+      canvas.onmousedown = (e: any) => {
+        if (e.button === 0) {
+          const canvas = e.target;
+          const ctx = canvas.getContext("2d");
+          if (!ctx) return;
+          e.target.onmousemove = (m: any) => {
+            const x = m.clientX - canvas.offsetLeft;
+            const y = m.clientY - canvas.offsetTop;
+            ctx.clearRect(x - 230, y - 160, 20, 20);
+          };
+        }
+      };
 
-      if (onMouseUp) {
-        canvas.onmouseup = onMouseUp;
-      }
-    }, [backgroundColor, font, textColor, text, onMouseDown, onMouseUp]);
+      canvas.onmouseup = (e: any) => {
+        if (e.button === 0) {
+          e.target.onmousemove = null;
+        }
+      };
+    }, [backgroundColor, font, textColor, text, clear]);
   }
 
   return (

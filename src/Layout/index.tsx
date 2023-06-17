@@ -22,7 +22,7 @@ const LayoutIndex = (props: { lock: boolean }) => {
             <LayoutHeader />
             <Layout>
               <LayoutTabs />
-              <Layout className="!mt-[10px] !px-[24px] !flex-col">
+              <Layout className="!mt-[10px] !pl-[24px] !flex-col">
                 <Content>
                   <Outlet />
                 </Content>

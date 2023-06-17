@@ -1,67 +1,126 @@
-import { Table, TableColumnProps } from "@arco-design/web-react";
+import { useEcharts } from "@/Hooks/useEcharts";
 
-const columns: TableColumnProps[] = [
-  {
-    title: "Name",
-    dataIndex: "name"
-  },
-  {
-    title: "Salary",
-    dataIndex: "salary"
-  },
-  {
-    title: "Address",
-    dataIndex: "address"
-  },
-  {
-    title: "Email",
-    dataIndex: "email"
-  }
-];
-const data = [
-  {
-    key: "1",
-    name: "Jane Doe",
-    salary: 23000,
-    address: "32 Park Road, London",
-    email: "jane.doe@example.com"
-  },
-  {
-    key: "2",
-    name: "Alisa Ross",
-    salary: 25000,
-    address: "35 Park Road, London",
-    email: "alisa.ross@example.com"
-  },
-  {
-    key: "3",
-    name: "Kevin Sandra",
-    salary: 22000,
-    address: "31 Park Road, London",
-    email: "kevin.sandra@example.com"
-  },
-  {
-    key: "4",
-    name: "Ed Hellen",
-    salary: 17000,
-    address: "42 Park Road, London",
-    email: "ed.hellen@example.com"
-  },
-  {
-    key: "5",
-    name: "William Smith",
-    salary: 27000,
-    address: "62 Park Road, London",
-    email: "william.smith@example.com"
-  }
-];
+const Curve = () => {
+  const pieData: any = [
+    { value: 5000, name: "Gitee 访问量" },
+    { value: 5000, name: "GitHub 访问量" }
+  ];
+  const option: any = {
+    title: {
+      text: "Gitee / GitHub",
+      subtext: "访问占比",
+      left: "56%",
+      top: "45%",
+      textAlign: "center",
+      textStyle: {
+        fontSize: 18,
+        color: "#767676"
+      },
+      subtextStyle: {
+        fontSize: 15,
+        color: "#a1a1a1"
+      }
+    },
+    tooltip: {
+      trigger: "item"
+    },
+    legend: {
+      top: "4%",
+      left: "2%",
+      orient: "vertical",
+      icon: "circle", //图例形状
+      align: "left",
+      itemGap: 20,
+      textStyle: {
+        fontSize: 13,
+        color: "#a1a1a1",
+        fontWeight: 500
+      },
+      formatter: function (name: string) {
+        let dataCopy = "";
+        for (let i = 0; i < pieData.length; i++) {
+          if (pieData[i].name == name && pieData[i].value >= 10000) {
+            dataCopy = (pieData[i].value / 10000).toFixed(2);
+            return name + "      " + dataCopy + "w";
+          } else if (pieData[i].name == name) {
+            dataCopy = pieData[i].value;
+            return name + "      " + dataCopy;
+          }
+        }
+      }
+    },
+    series: [
+      {
+        type: "pie",
+        radius: ["70%", "40%"],
+        center: ["57%", "52%"],
+        silent: true,
+        clockwise: true,
+        startAngle: 150,
+        data: pieData,
+        labelLine: {
+          length: 80,
+          length2: 30,
+          lineStyle: {
+            width: 1
+          }
+        },
+        label: {
+          position: "outside",
+          show: true,
+          formatter: "{d}%",
+          fontWeight: 400,
+          fontSize: 19,
+          color: "#a1a1a1"
+        },
+        color: [
+          {
+            type: "linear",
+            x: 0,
+            y: 0,
+            x2: 0.5,
+            y2: 1,
+            colorStops: [
+              {
+                offset: 0,
+                color: "#feb791" // 0% 处的颜色
+              },
+              {
+                offset: 1,
+                color: "#fe8b4c" // 100% 处的颜色
+              }
+            ]
+          },
+          {
+            type: "linear",
+            x: 0,
+            y: 0,
+            x2: 1,
+            y2: 0.5,
+            colorStops: [
+              {
+                offset: 0,
+                color: "#b898fd" // 0% 处的颜色
+              },
+              {
+                offset: 1,
+                color: "#8347fd" // 100% 处的颜色
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  };
 
-const testTable = () => {
+  const [echartsRef] = useEcharts(option, pieData);
   return (
-    <>
-      <Table columns={columns} data={data} />;
-    </>
+    <div
+      ref={echartsRef}
+      style={{ height: "100%", width: "100%" }}
+      className="content-box"
+    ></div>
   );
 };
 
-export default testTable;
+export default Curve;
