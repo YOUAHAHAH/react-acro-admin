@@ -1,4 +1,3 @@
-import React from "react";
 import { LayoutIndex, lazyLoad } from "../utils/baseRouter";
 import { RouteObject } from "@/router/type";
 import { IconUnorderedList } from "@arco-design/web-react/icon";
@@ -16,7 +15,7 @@ const menuRouter: Array<RouteObject> = [
     children: [
       {
         path: "/menu/menu1",
-        element: lazyLoad(React.lazy(() => import("@/views/menu/menu1/index"))),
+        element: lazyLoad(lazy(() => import("@/views/menu/menu1/index"))),
         meta: {
           requiresAuth: true,
           title: "菜单1",
@@ -35,7 +34,7 @@ const menuRouter: Array<RouteObject> = [
           {
             path: "/menu/menu2/menu21",
             element: lazyLoad(
-              React.lazy(() => import("@/views/menu/menu2/menu21/index"))
+              lazy(() => import("@/views/menu/menu2/menu21/index"))
             ),
             meta: {
               requiresAuth: true,
@@ -46,7 +45,7 @@ const menuRouter: Array<RouteObject> = [
           {
             path: "/menu/menu2/menu22",
             element: lazyLoad(
-              React.lazy(() => import("@/views/menu/menu2/menu22/index"))
+              lazy(() => import("@/views/menu/menu2/menu22/index"))
             ),
             meta: {
               requiresAuth: true,
@@ -57,7 +56,7 @@ const menuRouter: Array<RouteObject> = [
           {
             path: "/menu/menu2/menu23",
             element: lazyLoad(
-              React.lazy(() => import("@/views/menu/menu2/menu23/index"))
+              lazy(() => import("@/views/menu/menu2/menu23/index"))
             ),
             meta: {
               requiresAuth: true,
@@ -69,7 +68,7 @@ const menuRouter: Array<RouteObject> = [
       },
       {
         path: "/menu/menu3",
-        element: lazyLoad(React.lazy(() => import("@/views/menu/menu3/index"))),
+        element: lazyLoad(lazy(() => import("@/views/menu/menu3/index"))),
         meta: {
           requiresAuth: true,
           title: "菜单3",

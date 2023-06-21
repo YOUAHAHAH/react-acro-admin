@@ -1,4 +1,3 @@
-import React from "react";
 import { LayoutIndex, lazyLoad } from "../utils/baseRouter";
 import { RouteObject } from "@/router/type";
 import { IconApps } from "@arco-design/web-react/icon";
@@ -16,9 +15,7 @@ const ableRouter: Array<RouteObject> = [
     children: [
       {
         path: "/components/searchBox",
-        element: lazyLoad(
-          React.lazy(() => import("@/views/Components/searchBox"))
-        ),
+        element: lazyLoad(lazy(() => import("@/views/Components/searchBox"))),
         meta: {
           requiresAuth: true,
           title: "搜索组件",
@@ -27,9 +24,7 @@ const ableRouter: Array<RouteObject> = [
       },
       {
         path: "/components/message",
-        element: lazyLoad(
-          React.lazy(() => import("@/views/Components/message"))
-        ),
+        element: lazyLoad(lazy(() => import("@/views/Components/message"))),
         meta: {
           requiresAuth: true,
           title: "消息提示",
@@ -38,9 +33,7 @@ const ableRouter: Array<RouteObject> = [
       },
       {
         path: "/components/download",
-        element: lazyLoad(
-          React.lazy(() => import("@/views/Components/download"))
-        ),
+        element: lazyLoad(lazy(() => import("@/views/Components/download"))),
         meta: {
           requiresAuth: true,
           title: "下载组件",

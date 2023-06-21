@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import { LazyExoticComponent, Suspense, ReactNode } from "react";
 import { Spin } from "@arco-design/web-react";
 import Layout from "@/Layout/index";
 
@@ -8,9 +8,7 @@ import Layout from "@/Layout/index";
  * @returns element
  */
 
-export const lazyLoad = (
-  Comp: React.LazyExoticComponent<any>
-): React.ReactNode => {
+export const lazyLoad = (Comp: LazyExoticComponent<any>): ReactNode => {
   return (
     <Suspense
       fallback={

@@ -1,4 +1,3 @@
-import React from "react";
 import { LayoutIndex, lazyLoad } from "../utils/baseRouter";
 import { RouteObject } from "@/router/type";
 import { Icon } from "@arco-design/web-react";
@@ -20,7 +19,7 @@ const echartsRouter: Array<RouteObject> = [
     children: [
       {
         path: "/echarts/test",
-        element: lazyLoad(React.lazy(() => import("@/views/Echarts/test"))),
+        element: lazyLoad(lazy(() => import("@/views/Echarts/test"))),
         meta: {
           requiresAuth: true,
           title: "测试图表",

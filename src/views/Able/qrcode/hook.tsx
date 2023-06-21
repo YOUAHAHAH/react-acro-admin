@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import QRCode from "qrcode";
 import { Image } from "@arco-design/web-react";
 import { IconEye, IconDownload } from "@arco-design/web-react/icon";

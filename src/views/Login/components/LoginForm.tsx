@@ -1,5 +1,3 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { Form, Input, Button, Checkbox, Message } from "@arco-design/web-react";
 import { IconUser, IconLock } from "@arco-design/web-react/icon";
 import { connect } from "react-redux";

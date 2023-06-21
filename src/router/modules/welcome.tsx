@@ -1,4 +1,3 @@
-import React from "react";
 import { LayoutIndex, lazyLoad } from "../utils/baseRouter";
 import { RouteObject } from "@/router/type";
 import { IconHome } from "@arco-design/web-react/icon";
@@ -16,7 +15,7 @@ const welcomeRouter: Array<RouteObject> = [
     children: [
       {
         path: "/welcome/index",
-        element: lazyLoad(React.lazy(() => import("@/views/Welcome"))),
+        element: lazyLoad(lazy(() => import("@/views/Welcome"))),
         meta: {
           requiresAuth: true,
           title: "首页",

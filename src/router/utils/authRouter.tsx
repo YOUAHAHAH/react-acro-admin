@@ -1,4 +1,4 @@
-import { useLocation, Navigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { connect } from "react-redux";
 import Cookies from "js-cookie";
 import { routePath } from "@/utils/menuKey";

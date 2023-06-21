@@ -1,5 +1,3 @@
-import React, { useRef } from "react";
-import { useNavigate } from "react-router-dom";
 import { Dropdown, Menu, Avatar } from "@arco-design/web-react";
 import { IconExport, IconUser, IconLock } from "@arco-design/web-react/icon";
 import LockModal from "./Lock/LockModal";

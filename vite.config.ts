@@ -4,6 +4,7 @@ import { resolve } from "path";
 import react from "@vitejs/plugin-react";
 import vitePluginImp from "vite-plugin-imp";
 import { viteMockServe } from "vite-plugin-mock";
+import AutoImport from "unplugin-auto-import/vite";
 import { visualizer } from "rollup-plugin-visualizer";
 import picocolors from "picocolors";
 import dayjs from "dayjs";
@@ -14,6 +15,9 @@ const __APP_INFO__ = {
   pkg: { dependencies, devDependencies, name, version },
   lastBuildTime: dayjs().format("YYYY-MM-DD HH:mm:ss")
 };
+
+/** 当前执行node命令时文件夹的地址（工作目录） */
+const root: string = process.cwd();
 
 /** 路径查找 */
 const pathResolve = (dir: string): string => {
@@ -28,7 +32,10 @@ const alias: Record<string, string> = {
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
-  const env = loadEnv(mode, process.cwd(), "");
+  // const { VITE_CDN, VITE_PORT, VITE_COMPRESSION, VITE_PUBLIC_PATH } =
+  //   warpperEnv(loadEnv(mode, root));
+
+  const { VITE_PORT } = loadEnv(mode, root);
   const prodMock = true;
 
   console.log(
@@ -51,10 +58,14 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
       // 是否开启 https
       https: false,
       // 端口号
-      port: Number(env.VITE_PORT),
+      port: Number(VITE_PORT),
       host: "0.0.0.0"
     },
     plugins: [
+      AutoImport({
+        imports: ["react", "react-router"],
+        dts: "./src/typings/auto-imports.d.ts"
+      }),
       react(),
       vitePluginImp({
         libList: [

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Button } from "@arco-design/web-react";
 import { nowDate } from "@/utils/timeConfig";
 import { DownloadProps, DownloadOptions } from "./downLoadType";

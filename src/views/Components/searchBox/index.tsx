@@ -1,4 +1,3 @@
-import { useState } from "react";
 import SearchBox, { defaultValueType } from "@/components/SearchBox/src/index";
 import MessageCom from "@/components/Message/src/index";
 

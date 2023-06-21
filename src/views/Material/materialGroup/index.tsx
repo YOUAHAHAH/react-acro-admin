@@ -1,4 +1,3 @@
-import { useEffect, useRef, useState } from "react";
 import {
   List,
   Result,
@@ -9,9 +8,7 @@ import {
 import { IconSearch } from "@arco-design/web-react/icon";
 import dayjs from "dayjs";
 import { queryGroupSite } from "@/api/modules/material";
-import SearchBox, {
-  defaultValueType
-} from "@/components/SearchBox/src/index";
+import SearchBox, { defaultValueType } from "@/components/SearchBox/src/index";
 import MessageCom from "@/components/Message/src";
 import ModalGroup from "./modalGroup";
 import { useConfigTable } from "@/Hooks/useColumn";

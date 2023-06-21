@@ -1,4 +1,3 @@
-import { useState, useRef, useEffect } from "react";
 import { Button, Form, Modal, Input, Divider } from "@arco-design/web-react";
 import { ctxProps } from "../type";
 import Hook from "./hook";

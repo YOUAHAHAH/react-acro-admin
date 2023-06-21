@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { Button, Tooltip } from "@arco-design/web-react";
 import {
   IconFullscreenExit,

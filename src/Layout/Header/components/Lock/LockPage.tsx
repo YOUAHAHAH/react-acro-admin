@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { weekDay, nowDate } from "@/utils/timeConfig";
 import { Button, Form, Input, Message } from "@arco-design/web-react";
 import { IconUnlock } from "@arco-design/web-react/icon";

@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-import { Navigate, useLocation, useRoutes } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import Login from "@/views/Login/index";
 import Error404 from "@/views/Error/404";
 import { RouteObject } from "./type";

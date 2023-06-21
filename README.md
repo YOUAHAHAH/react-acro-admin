@@ -60,7 +60,7 @@ npm run dev
 - 打包
 
 ```bash
-npm build
+npm run build
 ```
 
 

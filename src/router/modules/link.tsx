@@ -1,4 +1,3 @@
-import React from "react";
 import { LayoutIndex, lazyLoad } from "../utils/baseRouter";
 import { RouteObject } from "@/router/type";
 import { IconLink } from "@arco-design/web-react/icon";
@@ -16,7 +15,7 @@ const menuRouter: Array<RouteObject> = [
     children: [
       {
         path: "/link/react",
-        element: lazyLoad(React.lazy(() => import("@/Layout/FramePage"))),
+        element: lazyLoad(lazy(() => import("@/Layout/FramePage"))),
         meta: {
           requiresAuth: true,
           title: "React文档(内嵌)",
@@ -27,7 +26,7 @@ const menuRouter: Array<RouteObject> = [
       },
       {
         path: "/link/acro",
-        element: lazyLoad(React.lazy(() => import("@/Layout/FramePage"))),
+        element: lazyLoad(lazy(() => import("@/Layout/FramePage"))),
         meta: {
           requiresAuth: true,
           title: "acro(外链)",

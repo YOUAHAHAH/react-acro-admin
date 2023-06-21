@@ -1,4 +1,3 @@
-import { useLocation, useNavigate } from "react-router-dom";
 import { Divider, Dropdown, Menu } from "@arco-design/web-react";
 import {
   IconDown,

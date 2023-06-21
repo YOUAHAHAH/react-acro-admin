@@ -1,4 +1,3 @@
-import React from "react";
 import { LayoutIndex, lazyLoad } from "../utils/baseRouter";
 import { RouteObject } from "@/router/type";
 import { IconCommon } from "@arco-design/web-react/icon";
@@ -16,7 +15,7 @@ const ableRouter: Array<RouteObject> = [
     children: [
       {
         path: "/able/qrcode",
-        element: lazyLoad(React.lazy(() => import("@/views/Able/qrcode"))),
+        element: lazyLoad(lazy(() => import("@/views/Able/qrcode"))),
         meta: {
           requiresAuth: true,
           title: "二维码",
@@ -25,7 +24,7 @@ const ableRouter: Array<RouteObject> = [
       },
       {
         path: "/able/scraping",
-        element: lazyLoad(React.lazy(() => import("@/views/Able/scraping"))),
+        element: lazyLoad(lazy(() => import("@/views/Able/scraping"))),
         meta: {
           requiresAuth: true,
           title: "刮刮乐",

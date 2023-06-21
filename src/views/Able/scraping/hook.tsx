@@ -1,4 +1,3 @@
-import { useEffect, useRef } from "react";
 import { ctxProps } from "../type";
 
 const Hook = (props: ctxProps) => {

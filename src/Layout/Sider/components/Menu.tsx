@@ -1,5 +1,4 @@
-import { ReactNode, useCallback, useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { ReactNode } from "react";
 import { Menu, Spin, Message } from "@arco-design/web-react";
 import { routerArray } from "@/router/index";
 import { RouteObject } from "@/router/type";

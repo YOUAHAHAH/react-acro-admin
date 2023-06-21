@@ -1,4 +1,3 @@
-import React from "react";
 import { LayoutIndex, lazyLoad } from "../utils/baseRouter";
 import { RouteObject } from "@/router/type";
 import { IconExperiment } from "@arco-design/web-react/icon";
@@ -16,9 +15,7 @@ const materialRouter: Array<RouteObject> = [
     children: [
       {
         path: "/material/materialGroup",
-        element: lazyLoad(
-          React.lazy(() => import("@/views/Material/materialGroup"))
-        ),
+        element: lazyLoad(lazy(() => import("@/views/Material/materialGroup"))),
         meta: {
           requiresAuth: true,
           title: "团队查询",

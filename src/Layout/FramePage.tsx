@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
 import { Link, Space } from "@arco-design/web-react";
 import { routerArray } from "@/router/index";
 import l from "./index.module.less";

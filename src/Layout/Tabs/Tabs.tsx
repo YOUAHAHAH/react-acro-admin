@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
 import { setTabsListState } from "@/redux/modules/Tab/actions";
 import { Tabs } from "@arco-design/web-react";
