@@ -7,12 +7,13 @@ import { RouteObject } from "./type";
 const pageTitle = import.meta.env.VITE_DEFAULT_TITLE;
 
 // * 导入所有router
-const metaRouters = import.meta.globEager("./modules/*.tsx");
+const metaRouters = import.meta.glob("./modules/*.tsx", { eager: true });
 
 export const routerArray: RouteObject[] = [];
+
 Object.keys(metaRouters).forEach(item => {
-  Object.keys(metaRouters[item] as unknown as any).forEach((key: any) => {
-    routerArray.push(...(metaRouters[item] as unknown as any)[key]);
+  Object.keys(metaRouters[item] as string).forEach((key: any) => {
+    routerArray.push(...(metaRouters[item] as any)[key]);
   });
 });
 
