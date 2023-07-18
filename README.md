@@ -49,6 +49,8 @@ cd react-acro-admin
 
 npm install
 
+npm install --legacy-peer-deps 依赖冲突
+
 ```
 
 - 运行
