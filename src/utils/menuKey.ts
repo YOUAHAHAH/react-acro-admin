@@ -65,7 +65,7 @@ const getItem = (
 export const deepLoopFloat = (menuList: Menu.MenuOptions[]) => {
   const newArr: MenuItemType[] = [];
   menuList.forEach((item: RouteObject) => {
-    if (!item.children?.length)
+    if (!item.children?.length) {
       return newArr.push(
         getItem(
           item.meta?.title,
@@ -74,15 +74,17 @@ export const deepLoopFloat = (menuList: Menu.MenuOptions[]) => {
           item.meta?.icon
         )
       );
-    newArr.push(
-      getItem(
-        item.meta?.title,
-        item.path,
-        item.meta?.isChildren,
-        item.meta?.icon,
-        deepLoopFloat(item.children)
-      )
-    );
+    } else {
+      newArr.push(
+        getItem(
+          item.meta?.title,
+          item.path,
+          item.meta?.isChildren,
+          item.meta?.icon,
+          deepLoopFloat(item.children)
+        )
+      );
+    }
   });
   return newArr;
 };

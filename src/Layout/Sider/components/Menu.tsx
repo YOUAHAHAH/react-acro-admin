@@ -1,12 +1,16 @@
-import { ReactNode } from "react";
+import { Fragment } from "react";
 import { Menu, Spin, Message } from "@arco-design/web-react";
+import * as Icon from "@arco-design/web-react/icon";
 import { routerArray } from "@/router/index";
 import { RouteObject } from "@/router/type";
 import { getOpenKeys, deepLoopFloat, MenuItemType } from "@/utils/menuKey";
 import { getRouterList } from "@/api/modules/routerList";
 
-const MenuItem = Menu.Item;
-const SubMenu = Menu.SubMenu;
+// const IconFont = Icon.addFromIconFontCn({
+//   src: "//at.alicdn.com/t/c/font_4118603_w6e12ei5dq.js"
+// });
+
+const { SubMenu, Item: MenuItem } = Menu;
 
 const SiderMenu = () => {
   const { pathname } = useLocation();
@@ -15,6 +19,7 @@ const SiderMenu = () => {
   const [selectedKeys, setSelectedKeys] = useState<string[]>([pathname]);
   const [openKeys, setOpenKeys] = useState<string[]>([]);
   const [menuList, setMenuList] = useState<MenuItemType[]>([]);
+  const [iconList, setIconList] = useState<string>();
 
   const onClickMenuItem = useCallback(
     (key: string, _event: any, _keyPath: string[]) => {
@@ -39,10 +44,11 @@ const SiderMenu = () => {
   const getMenuList = async () => {
     try {
       const { data } = await getRouterList();
+
       if (!data) return;
       setMenuList(
         deepLoopFloat(
-          routerArray.sort((a: RouteObject, b: RouteObject) => {
+          (data as RouteObject[]).sort((a: RouteObject, b: RouteObject) => {
             return (a.meta?.rank as number) - (b.meta?.rank as number);
           })
         )
@@ -65,12 +71,20 @@ const SiderMenu = () => {
     setOpenKeys(getOpenKeys(pathname));
   }, [pathname]);
 
+  const iconComponents = {};
+  Object.values(menuList).forEach(i => {
+    iconComponents[i.icons] = eval(`Icon.${i.icons}`);
+  });
+
   const renderMenuItem = (menuList: MenuItemType[]) => {
     return menuList.map((item: MenuItemType) => {
+      const IconComponent =
+        iconComponents[item.icons as string] || Icon.IconCommon;
+
       if (item.isChildren) {
         const subMenuTitle = (
           <span>
-            {item.icons as ReactNode}
+            {item.icons ? <IconComponent /> : null}
             {item.label}
           </span>
         );
@@ -87,7 +101,7 @@ const SiderMenu = () => {
       } else {
         return (
           <MenuItem key={item.key}>
-            {item.icons as ReactNode}
+            {item.icons ? <IconComponent /> : null}
             {item.label}
           </MenuItem>
         );
