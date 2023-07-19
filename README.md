@@ -51,6 +51,9 @@ npm install
 
 npm install --legacy-peer-deps 依赖冲突
 
+react-sortable-hoc 支持react@"^16.3.0 || ^17.0.0" from react-sortable-hoc@2.0.0
+但是本项目react为18.2版本 所有会有依赖冲突
+
 ```
 
 - 运行
