@@ -1,7 +1,6 @@
 import { Fragment } from "react";
 import { Menu, Spin, Message } from "@arco-design/web-react";
 import * as Icon from "@arco-design/web-react/icon";
-import { routerArray } from "@/router/index";
 import { RouteObject } from "@/router/type";
 import { getOpenKeys, deepLoopFloat, MenuItemType } from "@/utils/menuKey";
 import { getRouterList } from "@/api/modules/routerList";
@@ -19,7 +18,6 @@ const SiderMenu = () => {
   const [selectedKeys, setSelectedKeys] = useState<string[]>([pathname]);
   const [openKeys, setOpenKeys] = useState<string[]>([]);
   const [menuList, setMenuList] = useState<MenuItemType[]>([]);
-  const [iconList, setIconList] = useState<string>();
 
   const onClickMenuItem = useCallback(
     (key: string, _event: any, _keyPath: string[]) => {
