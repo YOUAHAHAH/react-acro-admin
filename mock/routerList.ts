@@ -6,7 +6,8 @@ const ableRouter = {
     title: "功能",
     rank: 11,
     isChildren: true,
-    icon: "IconCommon"
+    icon: "IconCommon",
+    auth: ["admin"]
   },
   children: [
     {
@@ -34,7 +35,8 @@ const componentsRouter = {
     title: "组件",
     rank: 12,
     isChildren: true,
-    icon: "IconApps"
+    icon: "IconApps",
+    auth: ["user", "admin"]
   },
   children: [
     {
@@ -70,7 +72,8 @@ const echartsRouter = {
     title: "测试图表",
     rank: 2,
     isChildren: true,
-    icon: "IconCommon"
+    icon: "IconCommon",
+    auth: ["admin"]
     // icon: <IconFont type="icon-hot" />
   },
   children: [
@@ -92,7 +95,8 @@ const linkRouter = {
     title: "外部链接",
     rank: 99,
     isChildren: true,
-    icon: "IconLink"
+    icon: "IconLink",
+    auth: ["admin"]
   },
   children: [
     {
@@ -124,7 +128,8 @@ const materialRouter = {
     title: "物料管理",
     rank: 15,
     isChildren: true,
-    icon: "IconExperiment"
+    icon: "IconExperiment",
+    auth: ["admin"]
   },
   children: [
     {
@@ -145,7 +150,8 @@ const menuRouter = {
     title: "嵌套菜单",
     rank: 14,
     isChildren: true,
-    icon: "IconUnorderedList"
+    icon: "IconUnorderedList",
+    auth: ["admin"]
   },
   children: [
     {
@@ -208,7 +214,8 @@ const welcomeRouter = {
     title: "首页",
     rank: 1,
     isChildren: false,
-    icon: "IconHome"
+    icon: "IconHome",
+    auth: ["user", "admin"]
   },
   children: [
     {

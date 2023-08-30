@@ -1,9 +1,9 @@
-import { Fragment } from "react";
 import { Menu, Spin, Message } from "@arco-design/web-react";
 import * as Icon from "@arco-design/web-react/icon";
 import { RouteObject } from "@/router/type";
 import { getOpenKeys, deepLoopFloat, MenuItemType } from "@/utils/menuKey";
 import { getRouterList } from "@/api/modules/routerList";
+import { permissionsMenu } from "@/router/utils/permissions";
 
 // const IconFont = Icon.addFromIconFontCn({
 //   src: "//at.alicdn.com/t/c/font_4118603_w6e12ei5dq.js"
@@ -24,33 +24,39 @@ const SiderMenu = () => {
       setSelectedKeys([key]);
       navigate(key);
     },
-    []
+    [navigate]
   );
 
-  const onClickSubMenu = (
-    _key: string,
-    openKeys: string[],
-    keyPath: string[]
-  ) => {
-    if (openKeys.length === 0 || openKeys.length === 1)
-      return setOpenKeys(openKeys);
-    const latestOpenKey = openKeys[openKeys.length - 1];
-    if (latestOpenKey.includes(openKeys[0])) return setOpenKeys(openKeys);
-    return setOpenKeys(keyPath);
-  };
+  const onClickSubMenu = useCallback(
+    (_key: string, openKeys: string[], keyPath: string[]) => {
+      if (openKeys.length === 0 || openKeys.length === 1)
+        return setOpenKeys(openKeys);
+
+      const latestOpenKey = openKeys[openKeys.length - 1];
+      if (latestOpenKey.includes(openKeys[0])) return setOpenKeys(openKeys);
+
+      return setOpenKeys(keyPath);
+    },
+    []
+  );
 
   const getMenuList = async () => {
     try {
       const { data } = await getRouterList();
 
       if (!data) return;
-      setMenuList(
-        deepLoopFloat(
-          (data as RouteObject[]).sort((a: RouteObject, b: RouteObject) => {
-            return (a.meta?.rank as number) - (b.meta?.rank as number);
-          })
+
+      const sortedMenuList = deepLoopFloat(
+        permissionsMenu(
+          (data as RouteObject[]).sort(
+            (a: RouteObject, b: RouteObject) =>
+              (a.meta?.rank as number) - (b.meta?.rank as number)
+          )
         )
       );
+
+      setMenuList(sortedMenuList);
+
       setTimeout(() => {
         setLoading(!loading);
       }, 1000);
@@ -69,10 +75,13 @@ const SiderMenu = () => {
     setOpenKeys(getOpenKeys(pathname));
   }, [pathname]);
 
-  const iconComponents = {};
-  Object.values(menuList).forEach(i => {
-    iconComponents[i.icons] = eval(`Icon.${i.icons}`);
-  });
+  const iconComponents = useMemo(() => {
+    const components = {};
+    Object.values(menuList).forEach(i => {
+      components[i.icons as string] = eval(`Icon.${i.icons}`);
+    });
+    return components;
+  }, [menuList]);
 
   const renderMenuItem = (menuList: MenuItemType[]) => {
     return menuList.map((item: MenuItemType) => {

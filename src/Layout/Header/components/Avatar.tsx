@@ -2,6 +2,10 @@ import { Dropdown, Menu, Avatar } from "@arco-design/web-react";
 import { IconExport, IconUser, IconLock } from "@arco-design/web-react/icon";
 import LockModal from "./Lock/LockModal";
 import { listAvatar } from "@/Layout/type";
+import Cookies from "js-cookie";
+import { ACRO_AUTH_TOKEN } from "@/redux/Types/mutation-types";
+import { connect } from "react-redux";
+import { loseAuthState } from "@/redux/modules/Auth/action";
 
 type LockRef = React.MutableRefObject<null> & {
   getModalVisible: () => void;
@@ -25,7 +29,8 @@ const list: listAvatar[] = [
   }
 ];
 
-const HeaderAvatar = () => {
+const HeaderAvatar = (props: { loseAuthState: any }) => {
+  const { loseAuthState } = props;
   const navigate = useNavigate();
   const lockRef = useRef<LockRef>();
 
@@ -39,6 +44,7 @@ const HeaderAvatar = () => {
     } else if (key === "2") {
       useLockModal();
     } else if (key === "3") {
+      loseAuthState();
       navigate("/login");
     }
   };
@@ -73,4 +79,5 @@ const HeaderAvatar = () => {
   );
 };
 
-export default HeaderAvatar;
+const mapDispatchToProps = { loseAuthState };
+export default connect(null, mapDispatchToProps)(HeaderAvatar);

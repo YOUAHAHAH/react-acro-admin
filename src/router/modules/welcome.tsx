@@ -10,7 +10,7 @@ const welcomeRouter: Array<RouteObject> = [
       title: "首页",
       rank: 1,
       isChildren: false,
-      icon: <IconHome />
+      auth: ["user", "admin"]
     },
     children: [
       {

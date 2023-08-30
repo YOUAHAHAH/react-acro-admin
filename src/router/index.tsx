@@ -1,7 +1,8 @@
 import { Navigate } from "react-router-dom";
 import Login from "@/views/Login/index";
 import Error404 from "@/views/Error/404";
-import { RouteObject } from "./type";
+import { RouteObject, MetaProps } from "./type";
+import { permissionsMenu } from "./utils/permissions";
 
 // * 后台标题
 const pageTitle = import.meta.env.VITE_DEFAULT_TITLE;
@@ -9,13 +10,15 @@ const pageTitle = import.meta.env.VITE_DEFAULT_TITLE;
 // * 导入所有router
 const metaRouters = import.meta.glob("./modules/*.tsx", { eager: true });
 
-export const routerArray: RouteObject[] = [];
+export let routerArray: RouteObject[] = [];
 
 Object.keys(metaRouters).forEach(item => {
   Object.keys(metaRouters[item] as string).forEach((key: any) => {
-    routerArray.push(...(metaRouters[item] as any)[key]);
+    routerArray.push(...(metaRouters[item] as MetaProps)[key]);
   });
 });
+
+routerArray = permissionsMenu(routerArray);
 
 export const rootRouter: RouteObject[] = [
   {

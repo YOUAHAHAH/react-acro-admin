@@ -10,7 +10,7 @@ const ableRouter: Array<RouteObject> = [
       title: "组件",
       rank: 12,
       isChildren: true,
-      icon: <IconApps />
+      auth: ["user", "admin"]
     },
     children: [
       {

@@ -10,7 +10,7 @@ const menuRouter: Array<RouteObject> = [
       title: "嵌套菜单",
       rank: 14,
       isChildren: true,
-      icon: <IconUnorderedList />
+      auth: ["admin"]
     },
     children: [
       {

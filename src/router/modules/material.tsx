@@ -10,7 +10,7 @@ const materialRouter: Array<RouteObject> = [
       title: "物料管理",
       rank: 15,
       isChildren: true,
-      icon: <IconExperiment />
+      auth: ["admin"]
     },
     children: [
       {

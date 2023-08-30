@@ -27,6 +27,7 @@ const LoginForm = (props: any) => {
         setTimeout(() => {
           Message.success(msg);
           navigate("/welcome/index");
+          window.location.reload();
           setLoading(false);
         }, 1000);
       } else {

@@ -12,7 +12,7 @@ export interface TabsState {
 
 // AuthState
 export interface AuthState {
-  username: string;
+  username: string | undefined;
   roles: string[];
-  token: string;
+  token: string | undefined;
 }

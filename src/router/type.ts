@@ -20,4 +20,5 @@ export interface MetaProps {
   frameSrc?: string;
   isOutsideLink?: boolean;
   isLink?: boolean;
+  auth?: string[];
 }

@@ -10,7 +10,7 @@ const menuRouter: Array<RouteObject> = [
       title: "外部链接",
       rank: 99,
       isChildren: true,
-      icon: <IconLink />
+      auth: ["admin"]
     },
     children: [
       {

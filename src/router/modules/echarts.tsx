@@ -14,7 +14,8 @@ const echartsRouter: Array<RouteObject> = [
       title: "测试图表",
       rank: 2,
       isChildren: true,
-      icon: <IconFont type="icon-hot" />
+      icon: <IconFont type="icon-hot" />,
+      auth: ["admin"]
     },
     children: [
       {
